@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <img
               src="/acs_logo_official.png"
               alt="Awasthi Consultancy Services — Complete Accounting Solution"
-              className="h-6 sm:h-7.5 max-h-8 w-auto object-contain shrink-0 transition-transform group-hover:scale-102"
+              className="h-8 sm:h-9 w-auto aspect-square object-contain shrink-0 transition-transform group-hover:scale-105"
             />
           </button>
 
@@ -163,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <img
                   src="/acs_logo_official.png"
                   alt="ACS"
-                  className="h-7 w-auto object-contain flex-shrink-0"
+                  className="h-8 w-auto aspect-square object-contain flex-shrink-0"
                 />
                 <div className="flex flex-col leading-none">
                   <span className="text-xs font-black text-[#202A35]">Awasthi Consultancy</span>

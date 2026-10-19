@@ -22,7 +22,7 @@ export const COMPANY_INFO: CompanyInfo = {
   ],
   googleMapsUrl: "https://maps.app.goo.gl/T5HLJLGrZ1ZSeGSQ9",
   rating: 4.9,
-  reviewCount: 127,
+  reviewCount: 130,
   workingHours: "Monday – Saturday: 10:00 AM – 8:00 PM"
 };
 

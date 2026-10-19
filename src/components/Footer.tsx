@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                 <img 
                   src="/acs_logo_official.png" 
                   alt="Awasthi Consultancy Services — Complete Accounting Solution" 
-                  className="h-7 lg:h-8 w-auto object-contain shrink-0 transition-transform group-hover:scale-105"
+                  className="h-8 lg:h-9 w-auto aspect-square object-contain shrink-0 transition-transform group-hover:scale-105"
                 />
                 <div className="flex flex-col justify-center leading-tight">
                   <span className="text-xs lg:text-sm font-black tracking-tight text-[#202A35] group-hover:text-[#C9272C] transition-colors">
@@ -251,7 +251,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                 <img 
                   src="/acs_logo_official.png" 
                   alt="ACS" 
-                  className="h-5 w-auto object-contain shrink-0"
+                  className="h-6 w-auto aspect-square object-contain shrink-0"
                 />
                 <span className="text-xs font-black text-[#202A35] truncate">
                   Awasthi Consultancy

@@ -16,10 +16,10 @@ interface StatItem {
 const STATS_DATA: StatItem[] = [
   {
     id: 'reviews',
-    target: COMPANY_INFO.reviewCount, // 127
+    target: 130, // 130+ 5-Star Ratings
     suffix: '+',
-    label: 'Google Reviews',
-    subtitle: `${COMPANY_INFO.rating} ★ Rating`,
+    label: '5-Star Ratings',
+    subtitle: `${COMPANY_INFO.rating} ★ Google Reviews`,
     icon: Star,
     accentColor: 'text-amber-500',
     iconBg: 'bg-amber-50 border-amber-200/80 text-amber-700'
@@ -36,17 +36,17 @@ const STATS_DATA: StatItem[] = [
   },
   {
     id: 'filings',
-    target: 500,
+    target: 1000,
     suffix: '+',
-    label: 'Successful Filings',
-    subtitle: 'Compliance Cases',
+    label: 'ITR Filings',
+    subtitle: 'Successful Cases',
     icon: TrendingUp,
     accentColor: 'text-blue-600',
     iconBg: 'bg-blue-50 border-blue-200/80 text-blue-700'
   },
   {
     id: 'experience',
-    target: 15,
+    target: 25,
     suffix: '+',
     label: 'Years in Practice',
     subtitle: 'Bhopal Commercial Desk',

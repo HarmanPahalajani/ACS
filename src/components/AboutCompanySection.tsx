@@ -90,7 +90,7 @@ export const AboutCompanySection: React.FC = () => {
                 </div>
                 <div className="text-lg sm:text-2xl font-black text-slate-900">4.9 ★</div>
                 <div className="text-[11px] sm:text-xs font-bold text-slate-700">Google Rating</div>
-                <p className="text-[9.5px] sm:text-[10px] text-slate-500 leading-tight">Over 127 verified Google customer reviews</p>
+                <p className="text-[9.5px] sm:text-[10px] text-slate-500 leading-tight">Over 130+ 5-Star ratings on Google</p>
               </div>
 
               <div className="p-3 sm:p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/70 shadow-2xs space-y-1">
