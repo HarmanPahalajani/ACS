@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /portal
+Disallow: /dashboard
+
+Sitemap: https://www.foxwynglobal.com/sitemap.xml

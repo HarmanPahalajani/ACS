@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Refined Architectural & Editorial Palette Tokens */
+    --color-canvas: #FAF9F6;        /* Warm Ivory Base Canvas */
+    --color-surface-white: #FFFFFF; /* Crisp White Content Surface */
+    --color-text-main: #202A35;     /* Deep Charcoal Primary Text */
+    --color-text-muted: #667085;    /* Muted Slate Secondary Text */
+    --color-border-subtle: #E7E5E0; /* Warm Light Grey Dividers & Borders */
+    --color-acs-crimson: #C9272C;   /* Restrained Crimson Red (ACS Brand) */
+    --color-acs-crimson-light: #FDF2F2;
+    --color-sand: #E9E2D8;          /* Pale Warm Beige Accent */
+    
+    /* Supplementary Accents */
+    --color-emerald-green: #059669; /* Emerald for verified status */
+    --color-amber-gold: #F59E0B;    /* Amber for ratings & solar accents */
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #FAF9F6;
+    color: #202A35;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #202A35;
+  }
+
+  /* Custom refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF9F6;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D8D5CD;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9272C;
+  }
+}
+
+/* Perspective & 3D utility classes */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+/* Continuous Architectural Fine-Line Grid Canvas (Layer 2) */
+.site-canvas-grid {
+  background-image: 
+    linear-gradient(to right, rgba(231, 229, 224, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 229, 224, 0.55) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Subtle Document Ledger Horizontal Rule */
+.ledger-rule {
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(231, 229, 224, 0.9) 10%, rgba(231, 229, 224, 0.9) 90%, transparent);
+}
+
+/* Soft Ambient Radial Variation (Layer 3) */
+.site-ambient-lighting {
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 10%, rgba(233, 226, 216, 0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 800px 500px at 85% 25%, rgba(201, 39, 44, 0.025) 0%, transparent 65%),
+    radial-gradient(ellipse 1000px 700px at 50% 55%, rgba(233, 226, 216, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 900px 600px at 85% 85%, rgba(201, 39, 44, 0.02) 0%, transparent 70%);
+}
+
+/* Bright Badge Shimmers */
+@keyframes shimmerGlow {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-shimmer-glow {
+  animation: shimmerGlow 3s ease-in-out infinite;
+}
+
+/* Reviews Infinite Two-Row Marquee */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 36s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 42s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pause-on-hover:hover .animate-marquee-left,
+  .pause-on-hover:hover .animate-marquee-right {
+    animation-play-state: paused;
+  }
+}
+.pause-on-hover:focus-within .animate-marquee-left,
+.pause-on-hover:focus-within .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Fade and Modal Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popoverIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-popoverIn {
+  animation: popoverIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalContentIn {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-modalIn {
+  animation: modalContentIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s infinite;
+}
+
+/* Modal Inner Slim Scrollbar */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #E11D48 transparent;
+}
+.modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 6px 0;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #F43F5E;
+  border-radius: 9999px;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #E11D48;
+}
+
+/* Card Hover Lift & Glow */
+.card-hover-lift {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.28s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .card-hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  }
+}
+
+/* Motion system classes */
+.motion-fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.motion-fade-up.motion-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-fade-in {
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.motion-fade-in.motion-visible {
+  opacity: 1;
+}
+
+.motion-scale-up {
+  opacity: 0;
+  transform: scale(0.96) translateY(12px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.motion-scale-up.motion-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade-up {
+  animation: heroFadeUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+.motion-delay-50  { transition-delay: 50ms; animation-delay: 50ms; }
+.motion-delay-75  { transition-delay: 75ms; animation-delay: 75ms; }
+.motion-delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.motion-delay-150 { transition-delay: 150ms; animation-delay: 150ms; }
+.motion-delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.motion-delay-250 { transition-delay: 250ms; animation-delay: 250ms; }
+.motion-delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+.motion-delay-350 { transition-delay: 350ms; animation-delay: 350ms; }
+.motion-delay-400 { transition-delay: 400ms; animation-delay: 400ms; }
+.motion-delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
+
+/* Refined Services Directory Scrollbar */
+.services-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #D8D5CD transparent;
+}
+.services-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.services-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.services-scrollbar::-webkit-scrollbar-thumb {
+  background: #D8D5CD;
+  border-radius: 9999px;
+}
+.services-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C9272C;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+  }
+  .motion-fade-up,
+  .motion-fade-in,
+  .motion-scale-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
