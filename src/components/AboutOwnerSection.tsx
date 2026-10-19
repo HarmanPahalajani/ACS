@@ -32,9 +32,9 @@ export const AboutOwnerSection: React.FC = () => {
             {/* Left Column: Portrait & Badge */}
             <div className="lg:col-span-4 flex flex-col items-center sm:flex-row lg:flex-col gap-4 text-center sm:text-left lg:text-center">
               <div className="relative shrink-0">
-                <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-2 border-[#C9272C]/30 shadow-md bg-slate-900 ring-4 ring-[#C9272C]/10">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-2 border-[#C9272C]/30 shadow-md bg-gradient-to-b from-slate-100 to-slate-200 ring-4 ring-[#C9272C]/10">
                   <img
-                    src="/pankaj_awasthi.jpg"
+                    src="/owner.png"
                     alt="Mr. Pankaj Awasthi — Owner of Awasthi Consultancy Services"
                     className="w-full h-full object-cover object-top"
                     loading="lazy"
