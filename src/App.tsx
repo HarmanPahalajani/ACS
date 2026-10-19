@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { SiteBackground } from './components/SiteBackground';
 import { HeroSection } from './components/HeroSection';
 import { OurServicesSection } from './components/OurServicesSection';
+import { AboutOwnerSection } from './components/AboutOwnerSection';
 import { GoogleReviewsSection } from './components/GoogleReviewsSection';
 import { AboutCompanySection } from './components/AboutCompanySection';
 import { LeadCaptureSection } from './components/LeadCaptureSection';
@@ -99,7 +100,10 @@ export const App: React.FC = () => {
           onClearExpandedService={() => setSelectedServiceToExpand(null)}
         />
 
-        {/* 4. Google Maps Reviews — Genuine Social Proof */}
+        {/* 4. About the Owner — Mr. Pankaj Awasthi */}
+        <AboutOwnerSection />
+
+        {/* 5. Google Maps Reviews — Genuine Social Proof */}
         <GoogleReviewsSection />
 
         {/* 5. About Awasthi Consultancy Services & Mr. Pankaj Awasthi */}
