@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               : 'opacity-0 translate-y-8 pointer-events-none'
           }`}
         >
-          <div className="relative bg-gradient-to-b from-white/90 via-[#FAF9F6]/85 to-white/75 backdrop-blur-2xl backdrop-saturate-150 border border-white/85 sm:border-white/95 ring-1 ring-[#E7E5E0]/60 shadow-[0_16px_45px_rgba(32,42,53,0.08),_0_4px_12px_rgba(32,42,53,0.03),_inset_0_1px_1.5px_rgba(255,255,255,0.95),_inset_0_-1px_1px_rgba(255,255,255,0.5)] rounded-2xl sm:rounded-3xl py-2 sm:py-2.5 px-3.5 sm:px-6 overflow-hidden">
+          <div className="relative bg-gradient-to-b from-white/95 via-[#FAF9F6]/85 to-white/80 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#C9272C]/35 ring-1 ring-[#C9272C]/15 shadow-[0_16px_45px_rgba(201,39,44,0.08),_0_4px_12px_rgba(32,42,53,0.04),_inset_0_1px_1.5px_rgba(255,255,255,0.95),_inset_0_-1px_1px_rgba(255,255,255,0.5)] rounded-2xl sm:rounded-3xl py-2 sm:py-2.5 px-3.5 sm:px-6 overflow-hidden">
           
           {/* Liquid Glass Top Specular Rim */}
           <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none" />

@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         className="fixed top-3 sm:top-4 left-3 sm:left-6 z-50 pointer-events-none"
         role="banner"
       >
-        <div className="relative flex items-center gap-2.5 sm:gap-3 bg-gradient-to-b from-white/90 via-[#FAF9F6]/80 to-white/75 hover:from-white/95 hover:to-white/85 backdrop-blur-2xl backdrop-saturate-150 border border-white/85 ring-1 ring-[#E7E5E0]/60 shadow-[0_8px_30px_rgba(32,42,53,0.07),_0_1px_3px_rgba(32,42,53,0.04),_inset_0_1px_1px_rgba(255,255,255,0.95),_inset_0_-1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_36px_rgba(32,42,53,0.1),_0_2px_6px_rgba(32,42,53,0.06),_inset_0_1px_1.5px_rgba(255,255,255,0.95)] rounded-full px-2.5 py-1.5 sm:px-3.5 sm:py-2 transition-all duration-200 pointer-events-auto overflow-hidden">
+        <div className="relative flex items-center gap-2.5 sm:gap-3 bg-gradient-to-b from-white/95 via-[#FAF9F6]/85 to-white/80 hover:from-white hover:to-white/90 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#C9272C]/35 ring-1 ring-[#C9272C]/15 shadow-[0_8px_30px_rgba(201,39,44,0.08),_0_2px_8px_rgba(32,42,53,0.06),_inset_0_1px_1px_rgba(255,255,255,0.95)] hover:shadow-[0_12px_36px_rgba(201,39,44,0.12),_0_3px_10px_rgba(32,42,53,0.08)] rounded-full px-2.5 py-1.5 sm:px-3.5 sm:py-2 transition-all duration-200 pointer-events-auto overflow-hidden">
           
           {/* Liquid Glass Top Specular Rim */}
           <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none rounded-t-full" />
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div 
             ref={menuRef}
             id="navigation-overlay-panel"
-            className="fixed top-14 sm:top-16 left-3 sm:left-6 right-3 sm:right-auto sm:w-[380px] md:w-[400px] max-h-[calc(100dvh-76px)] bg-gradient-to-b from-white/95 via-[#FAF9F6]/90 to-white/90 backdrop-blur-2xl border border-white/80 ring-1 ring-[#E7E5E0]/60 shadow-[0_24px_60px_rgba(32,42,53,0.14),_inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-3xl p-4 sm:p-5 flex flex-col gap-3 overflow-hidden animate-in fade-in zoom-in-95 duration-200 will-change-transform z-50"
+            className="fixed top-14 sm:top-16 left-3 sm:left-6 right-3 sm:right-auto sm:w-[380px] md:w-[400px] max-h-[calc(100dvh-76px)] bg-gradient-to-b from-white/95 via-[#FAF9F6]/90 to-white/90 backdrop-blur-2xl border-2 border-[#C9272C]/30 ring-1 ring-[#C9272C]/15 shadow-[0_24px_60px_rgba(32,42,53,0.14),_inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-3xl p-4 sm:p-5 flex flex-col gap-3 overflow-hidden animate-in fade-in zoom-in-95 duration-200 will-change-transform z-50"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
