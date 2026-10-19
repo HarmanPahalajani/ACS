@@ -20,7 +20,7 @@ export const COMPANY_INFO: CompanyInfo = {
     "+91 78797 75279",
     "+91 62670 95053"
   ],
-  googleMapsUrl: "https://maps.app.goo.gl/E2Wx7BAeKcMqrgDE6",
+  googleMapsUrl: "https://maps.app.goo.gl/T5HLJLGrZ1ZSeGSQ9",
   rating: 4.9,
   reviewCount: 127,
   workingHours: "Monday – Saturday: 10:00 AM – 8:00 PM"

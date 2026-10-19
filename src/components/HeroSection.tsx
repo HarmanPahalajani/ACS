@@ -210,7 +210,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="hidden lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* LEFT SIDE: Headline, Supporting Copy, and CTAs */}
-          <div className="lg:col-span-7 xl:col-span-6 space-y-7 text-left">
+          <div className="lg:col-span-8 xl:col-span-7 space-y-7 text-left">
             
             {/* Dominant Headline with brand accent */}
             <h1 className="text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-black tracking-tight text-[#202A35] leading-[1.12] animate-hero-fade-up">
@@ -232,20 +232,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 type="button"
                 onClick={onExploreServices}
-                className="w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-extrabold text-sm md:text-base shadow-md shadow-[#C9272C]/20 hover:shadow-lg hover:shadow-[#C9272C]/30 active:scale-[0.99] transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-extrabold text-sm md:text-base whitespace-nowrap shadow-md shadow-[#C9272C]/20 hover:shadow-lg hover:shadow-[#C9272C]/30 active:scale-[0.99] transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Our Services</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <ArrowRight className="w-4 h-4 text-white shrink-0" />
               </button>
 
               {/* Secondary CTA: Discuss Your Requirement */}
               <button
                 type="button"
                 onClick={onRequestConsultation}
-                className="w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-[#FAF9F6] text-[#202A35] font-bold text-sm md:text-base border border-[#E7E5E0] hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#FAF9F6] text-[#202A35] font-bold text-sm md:text-base whitespace-nowrap border border-[#E7E5E0] hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
               >
                 <span>Discuss Your Requirement</span>
-                <ArrowRight className="w-4 h-4 text-[#667085]" />
+                <ArrowRight className="w-4 h-4 text-[#667085] shrink-0" />
               </button>
 
               {/* Tertiary CTA: Visit Us with hyperlink to Google Maps */}
@@ -253,9 +253,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href={COMPANY_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-[#202A35] font-bold text-sm md:text-base border border-[#E7E5E0] hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#202A35] font-bold text-sm md:text-base whitespace-nowrap border border-[#E7E5E0] hover:border-[#C9272C]/40 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer group"
               >
-                <MapPin className="w-4 h-4 text-[#C9272C]" />
+                <MapPin className="w-4 h-4 text-[#C9272C] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>Visit Us</span>
               </a>
             </div>
@@ -263,7 +263,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* RIGHT SIDE: ENLARGED Static Document-Themed Visual (Clipboard, Paperwork, Pen) */}
-          <div className="lg:col-span-5 xl:col-span-6 relative mt-0 flex justify-end animate-hero-fade-up motion-delay-100">
+          <div className="lg:col-span-4 xl:col-span-5 relative mt-0 flex justify-end animate-hero-fade-up motion-delay-100">
             <HeroDocumentVisual />
           </div>
 
