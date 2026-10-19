@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Star, FileCheck2, TrendingUp, Clock } from 'lucide-react';
 import { COMPANY_INFO, SERVICES_CATALOG } from '../data';
 
@@ -58,21 +58,17 @@ const STATS_DATA: StatItem[] = [
 
 export const RollingStatistics: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const countRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const hasAnimatedRef = useRef<boolean>(false);
-  
-  // Initialize values: 0 if animated, or target if reduced motion
-  const [counts, setCounts] = useState<number[]>(() => {
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return STATS_DATA.map(s => s.target);
-    }
-    return STATS_DATA.map(() => 0);
-  });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // If reduced motion is preferred, values are already initialized to target
+    // If reduced motion is preferred, initialize directly with final targets
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      countRefs.current.forEach((span, idx) => {
+        if (span) span.textContent = String(STATS_DATA[idx].target);
+      });
       return;
     }
 
@@ -98,13 +94,21 @@ export const RollingStatistics: React.FC = () => {
             // easeOutCubic curve for natural deceleration
             const easeOut = 1 - Math.pow(1 - progress, 3);
 
-            const nextCounts = STATS_DATA.map(stat => Math.round(stat.target * easeOut));
-            setCounts(nextCounts);
+            STATS_DATA.forEach((stat, idx) => {
+              const span = countRefs.current[idx];
+              if (span) {
+                const currentVal = Math.round(stat.target * easeOut);
+                span.textContent = String(currentVal);
+              }
+            });
 
             if (progress < 1) {
               animationFrameId = requestAnimationFrame(animate);
             } else {
-              setCounts(STATS_DATA.map(s => s.target));
+              STATS_DATA.forEach((stat, idx) => {
+                const span = countRefs.current[idx];
+                if (span) span.textContent = String(stat.target);
+              });
             }
           };
 
@@ -133,7 +137,6 @@ export const RollingStatistics: React.FC = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5">
         {STATS_DATA.map((stat, idx) => {
           const Icon = stat.icon;
-          const displayValue = counts[idx];
 
           return (
             <div
@@ -148,7 +151,9 @@ export const RollingStatistics: React.FC = () => {
               {/* Right Side: Heading, Count, and Subtitle */}
               <div className="min-w-0 flex-1">
                 <div className="text-lg sm:text-2xl font-black text-[#202A35] tracking-tight font-mono leading-none flex items-baseline">
-                  <span>{displayValue}</span>
+                  <span ref={(el) => { countRefs.current[idx] = el; }}>
+                    0
+                  </span>
                   <span>{stat.suffix}</span>
                 </div>
                 

@@ -10,7 +10,8 @@ import React from 'react';
 export const SiteBackground: React.FC = () => {
   return (
     <div 
-      className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none" 
+      className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none isolate" 
+      style={{ contain: 'paint', willChange: 'transform' }}
       aria-hidden="true"
     >
       {/* Layer 1: Warm Ivory Base */}
