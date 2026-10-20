@@ -231,11 +231,11 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 </div>
 
                 {/* ACS Brand Logo Emblem */}
-                <div className="shrink-0 flex items-center justify-center p-1.5 sm:p-2 rounded-2xl bg-white/95 border border-[#E7E5E0] shadow-2xs hover:shadow-xs transition-shadow">
+                <div className="shrink-0 flex items-center justify-center p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-[#E7E5E0] shadow-xs hover:shadow-sm transition-all mr-4 sm:mr-8 lg:mr-5 -translate-x-2 sm:-translate-x-3">
                   <img
                     src="/acs_logo_official.png"
                     alt="Awasthi Consultancy Services (ACS) Official Brand Logo"
-                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-20 lg:h-20 object-contain aspect-square select-none"
+                    className="w-[86px] h-[86px] sm:w-[104px] sm:h-[104px] lg:w-[104px] lg:h-[104px] object-contain aspect-square select-none drop-shadow-xs"
                     loading="eager"
                   />
                 </div>
