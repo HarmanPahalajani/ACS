@@ -31,7 +31,8 @@ import {
   PhoneCall, 
   HelpCircle,
   FileText,
-  Sparkles
+  Sparkles,
+  QrCode
 } from 'lucide-react';
 import { SERVICES_CATALOG, SERVICE_CATEGORIES, COMPANY_INFO } from '../data';
 import type { ServiceCategoryKey } from '../types';
@@ -58,8 +59,18 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
   const [activeCategory, setActiveCategory] = useState<ServiceCategoryKey | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedServiceId, setExpandedServiceId] = useState<string | null>(null);
+  const [isUpiModalOpen, setIsUpiModalOpen] = useState(false);
   const rowRefs = useRef<Record<string, HTMLElement | null>>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isUpiModalOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsUpiModalOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isUpiModalOpen]);
 
   // Reset scroll container position when category or search changes
   useEffect(() => {
@@ -330,6 +341,14 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                   <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Connect on WhatsApp</span>
                 </a>
+                <button
+                  type="button"
+                  onClick={() => setIsUpiModalOpen(true)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors pt-0.5 cursor-pointer text-left"
+                >
+                  <QrCode className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>Pay via Paytm / PhonePe</span>
+                </button>
               </div>
             </div>
 
@@ -408,8 +427,16 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                     className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
                   >
                     <WhatsAppIcon className="w-3 h-3 text-emerald-600" />
-                    <span>Connect on WhatsApp</span>
+                    <span>WhatsApp</span>
                   </a>
+                  <button
+                    type="button"
+                    onClick={() => setIsUpiModalOpen(true)}
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer"
+                  >
+                    <QrCode className="w-3 h-3 text-indigo-600" />
+                    <span>Pay via Paytm / PhonePe</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -655,6 +682,69 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
         </div>
 
       </div>
+
+      {/* Pay via UPI (Paytm & PhonePe) Modal Popup */}
+      {isUpiModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="upi-modal-title"
+          onClick={() => setIsUpiModalOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-3xl p-5 sm:p-7 max-w-sm w-full border border-slate-200 shadow-2xl relative text-center animate-scaleUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsUpiModalOpen(false)}
+              className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Close UPI Payment modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Icon Badge */}
+            <div className="w-10 h-10 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-3 mx-auto shadow-2xs">
+              <QrCode className="w-5 h-5" />
+            </div>
+
+            {/* Modal Heading */}
+            <h3 id="upi-modal-title" className="text-xl font-black text-[#1E293B] tracking-tight">
+              Pay via UPI
+            </h3>
+
+            {/* Subtitle / Instructions */}
+            <p className="text-xs text-[#64748B] font-medium mt-1">
+              Scan the QR code using Paytm, PhonePe, Google Pay, or any UPI app.
+            </p>
+
+            {/* QR Code Container */}
+            <div className="mt-4 p-3 bg-white rounded-2xl border border-slate-200 shadow-2xs inline-block">
+              <img 
+                src="/upi_qr.jpg" 
+                alt="Scan to pay via Paytm, PhonePe or any UPI app" 
+                className="w-52 h-52 sm:w-56 sm:h-56 object-contain rounded-xl block mx-auto aspect-square select-none"
+              />
+            </div>
+
+            {/* Supported Apps */}
+            <div className="mt-3 text-[11px] text-[#94A3B8] font-medium">
+              Paytm • PhonePe • Google Pay • BHIM • Any UPI App
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsUpiModalOpen(false)}
+              className="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors cursor-pointer"
+            >
+              Done / Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
