@@ -17,8 +17,7 @@ export const COMPANY_INFO: CompanyInfo = {
   pincode: "462023",
   phones: [
     "+91 91658 94496",
-    "+91 78797 75279",
-    "+91 62670 95053"
+    "+91 86430 94468"
   ],
   googleMapsUrl: "https://maps.app.goo.gl/T5HLJLGrZ1ZSeGSQ9",
   rating: 4.9,
@@ -670,6 +669,6 @@ export const FAQS = [
   },
   {
     question: "How does the consultation and paperwork process work?",
-    answer: "You can call us directly on any of our 3 phone numbers (+91 91658 94496, +91 78797 75279, +91 62670 95053) or submit your requirement via our website. We review your requirement, provide a straightforward checklist of required papers, and handle the drafting and online submission."
+    answer: "You can call us directly on our phone numbers (+91 91658 94496, +91 86430 94468) or submit your requirement via our website. We review your requirement, provide a straightforward checklist of required papers, and handle the drafting and online submission."
   }
 ];

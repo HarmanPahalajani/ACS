@@ -86,8 +86,7 @@ Use the following information as the initial source of truth.
 
 **Contact numbers provided by the business:**
 - +91 91658 94496
-- +91 78797 75279
-- +91 62670 95053
+- +91 86430 94468
 
 **Google Maps business listing:**
 

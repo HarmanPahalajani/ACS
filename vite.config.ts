@@ -234,8 +234,8 @@ export default defineConfig(() => {
                 return res.end(JSON.stringify({
                   success: false,
                   isUnconfigured: true,
-                  error: "Online inquiry dispatch is awaiting recipient email configuration. Please contact our Bhopal office directly at +91 91658 94496 / +91 78797 75279 / +91 62670 95053 for immediate assistance.",
-                  alternativeContactNumbers: ["+91 91658 94496", "+91 78797 75279", "+91 62670 95053"]
+                  error: "Online inquiry dispatch is awaiting recipient email configuration. Please contact our Bhopal office directly at +91 91658 94496 / +91 86430 94468 for immediate assistance.",
+                  alternativeContactNumbers: ["+91 91658 94496", "+91 86430 94468"]
                 }))
 
               } catch (e: any) {

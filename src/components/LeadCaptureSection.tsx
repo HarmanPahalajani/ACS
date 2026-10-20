@@ -223,8 +223,8 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                   </span>
                 </a>
 
-                {/* Secondary Helplines in a compact 2-column grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* Secondary Helplines in a compact grid */}
+                <div className={`grid ${COMPANY_INFO.phones.length > 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} gap-2`}>
                   {COMPANY_INFO.phones.slice(1).map((phone, idx) => (
                     <a
                       key={idx}
