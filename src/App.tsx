@@ -4,6 +4,7 @@ import { SiteBackground } from './components/SiteBackground';
 import { HeroSection } from './components/HeroSection';
 import { OurServicesSection } from './components/OurServicesSection';
 import { AboutOwnerSection } from './components/AboutOwnerSection';
+import { PayViaUPISection } from './components/PayViaUPISection';
 import { GoogleReviewsSection } from './components/GoogleReviewsSection';
 import { AboutCompanySection } from './components/AboutCompanySection';
 import { LeadCaptureSection } from './components/LeadCaptureSection';
@@ -102,6 +103,9 @@ export const App: React.FC = () => {
 
         {/* 4. About the Owner — Mr. Pankaj Awasthi */}
         <AboutOwnerSection />
+
+        {/* Pay via UPI */}
+        <PayViaUPISection />
 
         {/* 5. Google Maps Reviews — Genuine Social Proof */}
         <GoogleReviewsSection />
