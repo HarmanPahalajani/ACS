@@ -250,6 +250,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
 
               {/* Address Card */}
               <div className="pt-3 border-t border-slate-100 space-y-2.5">
+                {/* Office Location */}
                 <div className="flex items-start gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-3.5 h-3.5" />
@@ -268,6 +269,19 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                       <span>Open in Google Maps</span>
                       <span>&rarr;</span>
                     </a>
+                  </div>
+                </div>
+
+                {/* Branch Office */}
+                <div className="flex items-start gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900">Branch Office</h4>
+                    <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                      {COMPANY_INFO.branchOfficeAddress || "Maa Parvati Nagar Mahabali Kolar Road Bhopal 462042"}
+                    </p>
                   </div>
                 </div>
 

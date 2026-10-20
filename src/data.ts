@@ -11,6 +11,7 @@ export const COMPANY_INFO: CompanyInfo = {
   monogramTagline: "Complete Accounting Solution",
   representative: "Pankaj Awasthi",
   address: "Flat No. 121, SR LIG, Ashoka Palace, Raisen Road, near Apsara Cinema",
+  branchOfficeAddress: "Maa Parvati Nagar Mahabali Kolar Road Bhopal 462042",
   area: "Ashoka Palace, Raisen Road",
   city: "Bhopal",
   state: "Madhya Pradesh",

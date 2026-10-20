@@ -66,6 +66,7 @@ export interface CompanyInfo {
   monogramTagline: string;
   representative: string;
   address: string;
+  branchOfficeAddress?: string;
   area: string;
   city: string;
   state: string;
