@@ -216,16 +216,30 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
              ======================================================================= */}
           <div className="lg:col-span-4 xl:col-span-4 lg:sticky lg:top-24 space-y-4 sm:space-y-5">
             
-            {/* Header Lockup */}
+            {/* Header Lockup with ACS Brand Emblem */}
             <div className="space-y-3 sm:space-y-3.5">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/70 text-[#C9272C] text-xs font-bold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Our Practice Areas</span>
-              </div>
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
+                <div className="space-y-2 sm:space-y-2.5 min-w-0 flex-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/70 text-[#C9272C] text-xs font-bold tracking-wide">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Our Practice Areas</span>
+                  </div>
 
-              <h2 className="text-2xl sm:text-4xl font-black text-[#202A35] tracking-tight leading-[1.2] sm:leading-[1.18]">
-                Services Offered
-              </h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#202A35] tracking-tight leading-[1.2] sm:leading-[1.18]">
+                    Services Offered
+                  </h2>
+                </div>
+
+                {/* ACS Brand Logo Emblem */}
+                <div className="shrink-0 flex items-center justify-center p-1.5 sm:p-2 rounded-2xl bg-white/95 border border-[#E7E5E0] shadow-2xs hover:shadow-xs transition-shadow">
+                  <img
+                    src="/acs_logo_official.png"
+                    alt="Awasthi Consultancy Services (ACS) Official Brand Logo"
+                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-20 lg:h-20 object-contain aspect-square select-none"
+                    loading="eager"
+                  />
+                </div>
+              </div>
 
               <p className="text-xs sm:text-base text-[#667085] font-normal leading-relaxed pt-0.5 sm:pt-1">
                 From statutory registrations and tax compliance to balance sheets and loan dossiers, Awasthi Consultancy Services helps individuals and businesses navigate paperwork with clarity and accuracy.
