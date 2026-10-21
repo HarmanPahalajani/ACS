@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <linearGradient id="sage-gradient-tl" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
               <stop stopColor="#b4c2b0" stopOpacity="0.45" />
               <stop stopColor="#8d9f89" stopOpacity="0.15" />
-              <stop stopColor="#FAF9F6" stopOpacity="0" />
+              <stop stopColor="#FAF9F4" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
@@ -57,20 +57,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <linearGradient id="sand-gradient-br" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#d6c39f" stopOpacity="0.35" />
               <stop offset="50%" stopColor="#d6c39f" stopOpacity="0.20" />
-              <stop offset="80%" stopColor="#FAF9F6" stopOpacity="0.04" />
-              <stop offset="100%" stopColor="#FAF9F6" stopOpacity="0" />
+              <stop offset="80%" stopColor="#FAF9F4" stopOpacity="0.04" />
+              <stop offset="100%" stopColor="#FAF9F4" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="sage-gradient-br" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#475949" stopOpacity="0.65" />
               <stop offset="50%" stopColor="#475949" stopOpacity="0.30" />
-              <stop offset="80%" stopColor="#FAF9F6" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#FAF9F6" stopOpacity="0" />
+              <stop offset="80%" stopColor="#FAF9F4" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#FAF9F4" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="olive-gradient-br" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#27382b" stopOpacity="0.85" />
               <stop offset="50%" stopColor="#27382b" stopOpacity="0.40" />
-              <stop offset="80%" stopColor="#FAF9F6" stopOpacity="0.06" />
-              <stop offset="100%" stopColor="#FAF9F6" stopOpacity="0" />
+              <stop offset="80%" stopColor="#FAF9F4" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#FAF9F4" stopOpacity="0" />
             </linearGradient>
           </defs>
           {/* Golden Sand Wave Accent */}
@@ -93,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Seamless Hero-to-Next-Section Canvas Transition Overlay */}
       <div 
-        className="absolute inset-x-0 bottom-0 h-32 sm:h-44 bg-gradient-to-b from-transparent via-[#FAF9F6]/75 to-[#FAF9F6] pointer-events-none z-0" 
+        className="absolute inset-x-0 bottom-0 h-32 sm:h-44 bg-gradient-to-b from-transparent via-[#FAF9F4]/75 to-[#FAF9F4] pointer-events-none z-0" 
         aria-hidden="true" 
       />
 
@@ -126,14 +126,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             
             {/* Left: Dominant Editorial Headline */}
             <div className="w-[53%] xs:w-[54%] flex-shrink-0 z-10">
-              <h1 className="text-[25px] xs:text-[28px] font-black tracking-tight text-[#1E2631] leading-[1.12]">
+              <h1 className="text-[25px] xs:text-[28px] font-black tracking-tight text-[#16324F] leading-[1.12]">
                 <span className="block">Your</span>
                 <span className="block">Business</span>
                 <span className="block">Paperwork,</span>
-                <span className="block text-[#C9272C] mt-0.5">Made Simpler.</span>
+                <span className="block text-[#2563EB] mt-0.5">Made Simpler.</span>
               </h1>
-              {/* Red accent underline bar from reference */}
-              <div className="w-12 h-1 bg-[#C9272C] rounded-full mt-2" />
+              {/* Primary Blue accent underline bar */}
+              <div className="w-12 h-1 bg-[#2563EB] rounded-full mt-2" />
             </div>
 
             {/* Right: Actual Hero PNG Illustration with Botanical Foliage */}
@@ -149,11 +149,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <path d="M95 55 C110 50, 118 70, 108 82 C95 90, 88 72, 95 55 Z" fill="#344E37" opacity="0.6" />
               </svg>
 
-              {/* Subtle red connector lines and dots from reference */}
+              {/* Subtle blue connector lines and dots */}
               <svg className="absolute -top-2 right-12 w-16 h-16 pointer-events-none opacity-75 z-0" viewBox="0 0 60 60" fill="none">
-                <circle cx="48" cy="12" r="3" fill="#C9272C" />
-                <circle cx="12" cy="45" r="2.5" fill="#C9272C" opacity="0.8" />
-                <path d="M48 12 Q30 20, 12 45" stroke="#C9272C" strokeWidth="0.75" strokeDasharray="2 2" opacity="0.45" />
+                <circle cx="48" cy="12" r="3" fill="#2563EB" />
+                <circle cx="12" cy="45" r="2.5" fill="#2563EB" opacity="0.8" />
+                <path d="M48 12 Q30 20, 12 45" stroke="#2563EB" strokeWidth="0.75" strokeDasharray="2 2" opacity="0.45" />
               </svg>
 
               {/* Actual Hero PNG Asset */}
@@ -169,7 +169,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Supporting Paragraph full width underneath */}
           <p className="text-[12.5px] xs:text-[13px] text-[#5A6578] font-normal leading-relaxed mt-3.5">
-            From tax filing and business registration to accounting and documentation, <strong className="text-[#202A35] font-semibold">Awasthi Consultancy Services</strong> helps you navigate essential paperwork with clearer guidance.
+            From tax filing and business registration to accounting and documentation, <strong className="text-[#16324F] font-semibold">Awasthi Consultancy Services</strong> helps you navigate essential paperwork with clearer guidance.
           </p>
 
           {/* 3 CTA Buttons: Explore Our Services, Discuss Your Requirement, and Visit Us */}
@@ -177,7 +177,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <button
               type="button"
               onClick={onExploreServices}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-extrabold text-[13px] xs:text-sm shadow-md shadow-[#C9272C]/20 active:scale-[0.99] transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold text-[13px] xs:text-sm shadow-md shadow-[#2563EB]/25 active:scale-[0.99] transition-all cursor-pointer"
             >
               <span>Explore Our Services</span>
               <ArrowRight className="w-4 h-4 text-white" />
@@ -185,18 +185,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <button
               type="button"
               onClick={onRequestConsultation}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white hover:bg-[#FAF9F6] text-[#202A35] font-bold text-[13px] xs:text-sm border border-[#E7E5E0] shadow-2xs active:scale-[0.99] transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white hover:bg-[#EFF6FF] text-[#16324F] font-bold text-[13px] xs:text-sm border border-[#16324F]/20 shadow-2xs active:scale-[0.99] transition-all cursor-pointer"
             >
               <span>Discuss Your Requirement</span>
-              <ArrowRight className="w-4 h-4 text-[#667085]" />
+              <ArrowRight className="w-4 h-4 text-[#399A9A]" />
             </button>
             <a
               href={COMPANY_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 text-[#202A35] font-bold text-[12.5px] xs:text-[13px] border border-[#E7E5E0] shadow-2xs active:scale-[0.99] transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#EFF6FF]/70 hover:bg-[#EFF6FF] text-[#16324F] font-bold text-[12.5px] xs:text-[13px] border border-[#DCEBFF] shadow-2xs active:scale-[0.99] transition-all cursor-pointer"
             >
-              <MapPin className="w-4 h-4 text-[#C9272C]" />
+              <MapPin className="w-4 h-4 text-[#2563EB]" />
               <span>Visit Us (Google Maps)</span>
             </a>
           </div>
@@ -213,16 +213,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-8 xl:col-span-7 space-y-7 text-left">
             
             {/* Dominant Headline with brand accent */}
-            <h1 className="text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-black tracking-tight text-[#202A35] leading-[1.12] animate-hero-fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-black tracking-tight text-[#16324F] leading-[1.12] animate-hero-fade-up">
               <span className="block lg:whitespace-nowrap">Your Business Paperwork,</span>
-              <span className="block text-[#C9272C] mt-1.5">
+              <span className="block text-[#2563EB] mt-1.5">
                 Made Simpler.
               </span>
             </h1>
             
             {/* Supporting Paragraph */}
             <p className="text-base md:text-lg text-[#667085] font-normal leading-relaxed max-w-xl animate-hero-fade-up motion-delay-100">
-              From tax filing and business registration to accounting and documentation, <strong className="text-[#202A35] font-semibold">Awasthi Consultancy Services</strong> helps you navigate essential paperwork with clearer guidance.
+              From tax filing and business registration to accounting and documentation, <strong className="text-[#16324F] font-semibold">Awasthi Consultancy Services</strong> helps you navigate essential paperwork with clearer guidance.
             </p>
 
             {/* Action Buttons: Primary, Secondary, and Visit Us */}
@@ -232,7 +232,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 type="button"
                 onClick={onExploreServices}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-extrabold text-sm md:text-base whitespace-nowrap shadow-md shadow-[#C9272C]/20 hover:shadow-lg hover:shadow-[#C9272C]/30 active:scale-[0.99] transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold text-sm md:text-base whitespace-nowrap shadow-md shadow-[#2563EB]/25 hover:shadow-lg hover:shadow-[#2563EB]/35 active:scale-[0.99] transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Our Services</span>
                 <ArrowRight className="w-4 h-4 text-white shrink-0" />
@@ -242,10 +242,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 type="button"
                 onClick={onRequestConsultation}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#FAF9F6] text-[#202A35] font-bold text-sm md:text-base whitespace-nowrap border border-[#E7E5E0] hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#EFF6FF] text-[#16324F] font-bold text-sm md:text-base whitespace-nowrap border border-[#16324F]/20 hover:border-[#2563EB]/40 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer"
               >
                 <span>Discuss Your Requirement</span>
-                <ArrowRight className="w-4 h-4 text-[#667085] shrink-0" />
+                <ArrowRight className="w-4 h-4 text-[#399A9A] shrink-0" />
               </button>
 
               {/* Tertiary CTA: Visit Us with hyperlink to Google Maps */}
@@ -253,9 +253,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href={COMPANY_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#202A35] font-bold text-sm md:text-base whitespace-nowrap border border-[#E7E5E0] hover:border-[#C9272C]/40 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer group"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#EFF6FF] text-[#16324F] font-bold text-sm md:text-base whitespace-nowrap border border-[#DCEBFF] hover:border-[#2563EB]/40 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer group"
               >
-                <MapPin className="w-4 h-4 text-[#C9272C] shrink-0 group-hover:scale-110 transition-transform" />
+                <MapPin className="w-4 h-4 text-[#2563EB] shrink-0 group-hover:scale-110 transition-transform" />
                 <span>Visit Us</span>
               </a>
             </div>

@@ -24,10 +24,10 @@ export const ACSLogo: React.FC<ACSLogoProps> = ({
       {variant === 'full' && showText && (
         <div className="flex flex-col justify-center leading-tight">
           <div className="flex items-center gap-1">
-            <span className="text-sm sm:text-base font-black tracking-tight text-slate-900">
+            <span className="text-sm sm:text-base font-black tracking-tight text-[#16324F]">
               Awasthi
             </span>
-            <span className="text-sm sm:text-base font-extrabold tracking-tight text-rose-600">
+            <span className="text-sm sm:text-base font-extrabold tracking-tight text-[#2563EB]">
               Consultancy
             </span>
           </div>

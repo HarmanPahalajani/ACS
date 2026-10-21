@@ -23,16 +23,16 @@ export const FaqSection: React.FC = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-red-50 text-[#C9272C] text-[11px] sm:text-xs font-bold uppercase tracking-wider border border-[#C9272C]/20">
-            <HelpCircle className="w-3.5 h-3.5 text-[#C9272C]" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-[11px] sm:text-xs font-bold uppercase tracking-wider border border-[#2563EB]/25">
+            <HelpCircle className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>Clear Answers</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#202A35] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#16324F] tracking-tight">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-[#667085] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#29332F]/70 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             Common questions regarding GST registration, ITR filing deadlines, Gumasta license in Bhopal, and loan CMA reports.
           </p>
         </div>
@@ -50,7 +50,7 @@ export const FaqSection: React.FC = () => {
               <div 
                 key={idx}
                 className={`bg-white rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-200 border ${
-                  isOpen ? 'border-[#C9272C]/40 bg-white shadow-xs' : 'border-[#E7E5E0] hover:border-slate-300 shadow-2xs'
+                  isOpen ? 'border-[#2563EB]/40 bg-white shadow-xs' : 'border-[#E7E5E0] hover:border-slate-300 shadow-2xs'
                 }`}
               >
                 <button
@@ -58,16 +58,16 @@ export const FaqSection: React.FC = () => {
                   id={`faq-btn-${idx}`}
                   aria-controls={`faq-panel-${idx}`}
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-3 sm:p-4 px-3.5 sm:px-5 text-left flex justify-between items-center gap-3 sm:gap-4 hover:bg-[#FAF9F6]/60 transition-colors cursor-pointer"
+                  className="w-full p-3 sm:p-4 px-3.5 sm:px-5 text-left flex justify-between items-center gap-3 sm:gap-4 hover:bg-[#FAF9F4]/60 transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span className={`text-[13px] sm:text-base font-extrabold pr-2 leading-snug transition-colors ${
-                    isOpen ? 'text-[#C9272C]' : 'text-[#202A35]'
+                    isOpen ? 'text-[#2563EB]' : 'text-[#16324F]'
                   }`}>
                     {faq.question}
                   </span>
                   <div className={`p-1 rounded-full transition-transform duration-300 flex-shrink-0 ${
-                    isOpen ? 'rotate-180 bg-rose-50 text-[#C9272C]' : 'bg-slate-100 text-slate-500'
+                    isOpen ? 'rotate-180 bg-[#EFF6FF] text-[#2563EB]' : 'bg-slate-100 text-slate-500'
                   }`}>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </div>
@@ -78,7 +78,7 @@ export const FaqSection: React.FC = () => {
                     id={`faq-panel-${idx}`}
                     role="region"
                     aria-labelledby={`faq-btn-${idx}`}
-                    className="px-3.5 pb-3 sm:px-5 sm:pb-4.5 text-[#667085] text-xs sm:text-sm leading-relaxed border-t border-[#E7E5E0]/70 pt-2.5 animate-fadeIn"
+                    className="px-3.5 pb-3 sm:px-5 sm:pb-4.5 text-[#29332F]/80 text-xs sm:text-sm leading-relaxed border-t border-[#E7E5E0]/70 pt-2.5 animate-fadeIn"
                   >
                     <p>{faq.answer}</p>
                   </div>
@@ -91,14 +91,14 @@ export const FaqSection: React.FC = () => {
         {/* Still have a question? Call desk prompt */}
         <div className="mt-5 sm:mt-7 p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl bg-white border border-[#E7E5E0] shadow-2xs text-center flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <div className="text-left">
-            <h4 className="text-xs sm:text-sm font-bold text-[#202A35]">Have a specific or unusual question?</h4>
-            <p className="text-xs text-[#667085] mt-0.5">Mr. Pankaj Awasthi and our team are happy to answer your questions.</p>
+            <h4 className="text-xs sm:text-sm font-bold text-[#16324F]">Have a specific or unusual question?</h4>
+            <p className="text-xs text-[#29332F]/70 mt-0.5">Mr. Pankaj Awasthi and our team are happy to answer your questions.</p>
           </div>
           <a
             href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#202A35] hover:bg-[#151D26] text-white text-xs font-bold transition-all shadow-xs flex-shrink-0"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#16324F] hover:bg-[#2563EB] text-white text-xs font-bold transition-all shadow-xs flex-shrink-0"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-rose-400" />
+            <PhoneCall className="w-3.5 h-3.5 text-[#EFF6FF]" />
             <span>Call: {COMPANY_INFO.phones[0]}</span>
           </a>
         </div>

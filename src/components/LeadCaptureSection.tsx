@@ -160,7 +160,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
   };
 
   return (
-    <section id="contact" className="py-8 sm:py-16 bg-transparent relative overflow-hidden">
+    <section id="contact" className="py-8 sm:py-16 bg-gradient-to-b from-[#FAF9F4] via-[#EFF6FF]/40 to-[#DCEBFF]/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -170,16 +170,16 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-rose-50 text-[#C9272C] text-[11px] sm:text-xs font-black uppercase tracking-wider border border-rose-200/70">
-            <Send className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#C9272C]" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-[11px] sm:text-xs font-black uppercase tracking-wider border border-[#2563EB]/25">
+            <Send className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#2563EB]" />
             <span>Consultation & Inquiries</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black text-[#202A35] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black text-[#16324F] tracking-tight">
             Discuss Your Requirement
           </h2>
 
-          <p className="text-xs sm:text-base text-[#667085] font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base text-[#29332F]/75 font-normal leading-relaxed max-w-2xl mx-auto">
             Send us your paperwork or taxation requirement, or call our Bhopal office directly.
           </p>
         </div>
@@ -192,10 +192,10 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
             <div className="bg-white rounded-xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#E7E5E0] shadow-2xs space-y-3.5 sm:space-y-4">
               
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-[#202A35]">
+                <h3 className="text-lg sm:text-xl font-black text-[#16324F]">
                   Direct Phone Lines
                 </h3>
-                <p className="text-xs text-[#667085] mt-0.5">
+                <p className="text-xs text-[#29332F]/70 mt-0.5">
                   Click on any number below to initiate a phone call immediately.
                 </p>
               </div>
@@ -205,20 +205,20 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                 {/* Primary Desk */}
                 <a
                   href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-                  className="flex items-center justify-between p-3 rounded-xl sm:rounded-2xl bg-rose-50/60 border border-rose-200/80 hover:bg-rose-100/70 text-[#202A35] font-bold text-sm transition-all group"
+                  className="flex items-center justify-between p-3 rounded-xl sm:rounded-2xl bg-[#EFF6FF] border border-[#2563EB]/30 hover:bg-[#DCEBFF]/60 text-[#16324F] font-bold text-sm transition-all group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#C9272C] text-white flex items-center justify-center shadow-xs">
+                    <div className="w-8 h-8 rounded-lg bg-[#2563EB] text-white flex items-center justify-center shadow-xs">
                       <PhoneCall className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="block text-sm font-extrabold text-[#202A35]">{COMPANY_INFO.phones[0]}</span>
-                      <span className="text-[10px] text-[#C9272C] font-bold">
+                      <span className="block text-sm font-extrabold text-[#16324F]">{COMPANY_INFO.phones[0]}</span>
+                      <span className="text-[10px] text-[#2563EB] font-bold">
                         Mr. Pankaj Awasthi
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-[#C9272C] group-hover:translate-x-0.5 transition-transform">
+                  <span className="text-xs font-bold text-[#2563EB] group-hover:translate-x-0.5 transition-transform">
                     Call Now &rarr;
                   </span>
                 </a>
@@ -229,18 +229,18 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                     <a
                       key={idx}
                       href={`tel:${phone.replace(/\s+/g, '')}`}
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] hover:bg-white text-[#202A35] text-xs font-bold transition-all group"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-[#FAF9F4] border border-[#E7E5E0] hover:bg-white text-[#16324F] text-xs font-bold transition-all group"
                     >
                       <div className="flex items-center gap-2 min-w-0">
                         <div className="w-6 h-6 rounded-md bg-slate-200 text-slate-700 flex items-center justify-center flex-shrink-0">
                           <Phone className="w-3 h-3" />
                         </div>
                         <div className="truncate">
-                          <span className="block text-[11px] font-extrabold text-slate-900 truncate">{phone}</span>
-                          <span className="text-[9px] text-slate-500 font-semibold block">Helpline {idx + 2}</span>
+                          <span className="block text-[11px] font-extrabold text-[#16324F] truncate">{phone}</span>
+                          <span className="text-[9px] text-[#29332F]/60 font-semibold block">Helpline {idx + 2}</span>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold text-rose-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0 ml-1">
+                      <span className="text-[10px] font-bold text-[#2563EB] group-hover:translate-x-0.5 transition-transform flex-shrink-0 ml-1">
                         &rarr;
                       </span>
                     </a>
@@ -252,19 +252,19 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
               <div className="pt-3 border-t border-slate-100 space-y-2.5">
                 {/* Office Location */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">Office Location</h4>
-                    <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    <h4 className="text-xs font-bold text-[#16324F]">Office Location</h4>
+                    <p className="text-xs text-[#29332F]/80 mt-0.5 leading-relaxed">
                       {COMPANY_INFO.address}, {COMPANY_INFO.city}, {COMPANY_INFO.state} – {COMPANY_INFO.pincode}
                     </p>
                     <a
                       href={COMPANY_INFO.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 hover:underline mt-1"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2563EB] hover:underline mt-1"
                     >
                       <span>Open in Google Maps</span>
                       <span>&rarr;</span>
@@ -274,24 +274,24 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
 
                 {/* Branch Office */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">Branch Office</h4>
-                    <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                    <h4 className="text-xs font-bold text-[#16324F]">Branch Office</h4>
+                    <p className="text-xs text-[#29332F]/80 mt-0.5 leading-relaxed">
                       {COMPANY_INFO.branchOfficeAddress || "Maa Parvati Nagar Mahabali Kolar Road Bhopal 462042"}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#E6F1E6] text-[#399A9A] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Clock className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900">Working Hours</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">
+                    <h4 className="text-xs font-bold text-[#16324F]">Working Hours</h4>
+                    <p className="text-xs text-[#29332F]/80 mt-0.5">
                       {COMPANY_INFO.workingHours}
                     </p>
                   </div>
@@ -299,7 +299,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
               </div>
 
               {/* Approachable Guidance Note */}
-              <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200/80 flex items-start gap-2">
+              <div className="p-3 rounded-xl bg-amber-50/80 border border-[#D6B36A]/50 flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                 <p className="text-[11px] text-amber-900 leading-relaxed font-medium">
                   We speak your language. No matter how complicated your paperwork seems, feel free to visit or call us for clear guidance.
@@ -318,18 +318,18 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
             }`}
           >
             <div className="mb-3.5 sm:mb-4">
-              <h3 className="text-lg sm:text-2xl font-black text-[#202A35]">
+              <h3 className="text-lg sm:text-2xl font-black text-[#16324F]">
                 Send an Online Inquiry
               </h3>
-              <p className="text-xs text-[#667085] mt-0.5">
+              <p className="text-xs text-[#29332F]/70 mt-0.5">
                 Fill in your details below and we will get back to you promptly.
               </p>
             </div>
 
             {/* Validation Error Banner */}
             {validationError && (
-              <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 flex items-center gap-2 text-xs font-bold text-red-700 animate-fadeIn">
-                <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
+              <div className="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-2 text-xs font-bold text-amber-800 animate-fadeIn">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 text-amber-600" />
                 <span>{validationError}</span>
               </div>
             )}
@@ -400,7 +400,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                 
                 <div>
                   <label htmlFor="fullName" className="block text-xs font-bold text-slate-700 mb-1">
-                    Your Full Name <span className="text-rose-600">*</span>
+                    Your Full Name <span className="text-[#2563EB]">*</span>
                   </label>
                   <div className="relative">
                     <User className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -411,14 +411,14 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Ramesh Sharma"
-                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
+                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-[#2563EB] focus:ring-4 focus:ring-[#2563EB]/15 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="phoneNumber" className="block text-xs font-bold text-slate-700 mb-1">
-                    Phone Number <span className="text-rose-600">*</span>
+                    Phone Number <span className="text-[#2563EB]">*</span>
                   </label>
                   <div className="relative">
                     <Phone className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -429,7 +429,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       placeholder="e.g. 91658 94496"
-                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
+                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-[#2563EB] focus:ring-4 focus:ring-[#2563EB]/15 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -451,14 +451,14 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="e.g. ramesh@example.com"
-                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
+                      className="w-full pl-9 pr-3 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-[#2563EB] focus:ring-4 focus:ring-[#2563EB]/15 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="serviceRequired" className="block text-xs font-bold text-slate-700 mb-1">
-                    Service Required <span className="text-rose-600">*</span>
+                    Service Required <span className="text-[#2563EB]">*</span>
                   </label>
                   <div className="relative">
                     <FileSpreadsheet className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -466,7 +466,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                       id="serviceRequired"
                       value={serviceRequired}
                       onChange={(e) => setServiceRequired(e.target.value)}
-                      className="w-full pl-9 pr-7 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all appearance-none cursor-pointer"
+                      className="w-full pl-9 pr-7 py-2.5 sm:py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-[#2563EB] focus:ring-4 focus:ring-[#2563EB]/15 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all appearance-none cursor-pointer"
                     >
                       {SERVICES_CATALOG.map(s => (
                         <option key={s.id} value={s.title}>
@@ -482,7 +482,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
               {/* Message Details */}
               <div>
                 <label htmlFor="message" className="block text-xs font-bold text-slate-700 mb-1">
-                  Requirement Details / Message <span className="text-rose-600">*</span>
+                  Requirement Details / Message <span className="text-[#2563EB]">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -491,7 +491,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Please describe what you need assistance with (e.g. Gumasta for new shop, GST registration, ITR filing for FY 2025-26, CMA report for loan)..."
-                  className="w-full p-3 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all resize-y"
+                  className="w-full p-3 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-[#2563EB] focus:ring-4 focus:ring-[#2563EB]/15 text-slate-900 text-base sm:text-sm font-medium outline-none transition-all resize-y"
                 />
               </div>
 
@@ -499,7 +499,7 @@ export const LeadCaptureSection: React.FC<LeadCaptureSectionProps> = ({ initialS
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 px-5 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-extrabold text-sm shadow-md shadow-[#C9272C]/20 hover:shadow-lg hover:shadow-[#C9272C]/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full py-3 px-5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold text-sm shadow-md shadow-[#2563EB]/20 hover:shadow-lg hover:shadow-[#2563EB]/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>

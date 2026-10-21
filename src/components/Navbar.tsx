@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         className="fixed top-3 sm:top-4 left-3 sm:left-6 z-50 pointer-events-none"
         role="banner"
       >
-        <div className="relative flex items-center gap-2.5 sm:gap-3 bg-gradient-to-b from-white/95 via-[#FAF9F6]/85 to-white/80 hover:from-white hover:to-white/90 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#C9272C]/35 ring-1 ring-[#C9272C]/15 shadow-[0_8px_30px_rgba(201,39,44,0.08),_0_2px_8px_rgba(32,42,53,0.06),_inset_0_1px_1px_rgba(255,255,255,0.95)] hover:shadow-[0_12px_36px_rgba(201,39,44,0.12),_0_3px_10px_rgba(32,42,53,0.08)] rounded-full px-2.5 py-1.5 sm:px-3.5 sm:py-2 transition-all duration-200 pointer-events-auto overflow-hidden">
+        <div className="relative flex items-center gap-2.5 sm:gap-3 bg-gradient-to-b from-white/95 via-[#FAF9F4]/90 to-white/85 hover:from-white hover:to-white/95 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#2563EB]/25 ring-1 ring-[#2563EB]/15 shadow-[0_8px_30px_rgba(37,99,235,0.08),_0_2px_8px_rgba(22,50,79,0.06),_inset_0_1px_1px_rgba(255,255,255,0.95)] hover:shadow-[0_12px_36px_rgba(37,99,235,0.14),_0_3px_10px_rgba(22,50,79,0.08)] rounded-full px-2.5 py-1.5 sm:px-3.5 sm:py-2 transition-all duration-200 pointer-events-auto overflow-hidden">
           
           {/* Liquid Glass Top Specular Rim */}
           <div className="absolute inset-x-3 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none rounded-t-full" />
@@ -101,15 +101,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             ref={buttonRef}
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="relative z-10 p-1 rounded-full text-[#202A35] hover:text-[#C9272C] transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 flex items-center justify-center shrink-0 active:scale-95 min-w-[36px] min-h-[36px]"
+            className="relative z-10 p-1 rounded-full text-[#16324F] hover:text-[#2563EB] transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] flex items-center justify-center shrink-0 active:scale-95 min-w-[36px] min-h-[36px]"
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
             aria-controls="navigation-overlay-panel"
           >
             {menuOpen ? (
-              <X className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#C9272C] transition-transform rotate-90 duration-200" />
+              <X className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#2563EB] transition-transform rotate-90 duration-200" />
             ) : (
-              <Menu className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#202A35] transition-transform duration-200" />
+              <Menu className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#16324F] transition-transform duration-200" />
             )}
           </button>
 
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={() => handleNav('')}
-            className="relative z-10 flex items-center cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 rounded group select-none shrink-0"
+            className="relative z-10 flex items-center cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] rounded group select-none shrink-0"
             aria-label="Awasthi Consultancy Services Home"
           >
             <img
@@ -150,13 +150,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div 
             ref={menuRef}
             id="navigation-overlay-panel"
-            className="fixed top-14 sm:top-16 left-3 sm:left-6 right-3 sm:right-auto sm:w-[380px] md:w-[400px] max-h-[calc(100dvh-76px)] bg-gradient-to-b from-white/95 via-[#FAF9F6]/90 to-white/90 backdrop-blur-2xl border-2 border-[#C9272C]/30 ring-1 ring-[#C9272C]/15 shadow-[0_24px_60px_rgba(32,42,53,0.14),_inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-3xl p-4 sm:p-5 flex flex-col gap-3 overflow-hidden animate-in fade-in zoom-in-95 duration-200 will-change-transform z-50"
+            className="fixed top-14 sm:top-16 left-3 sm:left-6 right-3 sm:right-auto sm:w-[380px] md:w-[400px] max-h-[calc(100dvh-76px)] bg-gradient-to-b from-white/95 via-[#FAF9F4]/95 to-white/95 backdrop-blur-2xl border-2 border-[#2563EB]/25 ring-1 ring-[#2563EB]/15 shadow-[0_24px_60px_rgba(22,50,79,0.16),_inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-3xl p-4 sm:p-5 flex flex-col gap-3 overflow-hidden animate-in fade-in zoom-in-95 duration-200 will-change-transform z-50"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
           >
             {/* Top specular reflection */}
             <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none" />
+
             {/* Header: Title & Close Button */}
             <div className="flex items-center justify-between pb-3 border-b border-[#E7E5E0]/70 flex-shrink-0">
               <div className="flex items-center gap-2.5">
@@ -166,8 +167,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="h-8 w-auto aspect-square object-contain flex-shrink-0"
                 />
                 <div className="flex flex-col leading-none">
-                  <span className="text-xs font-black text-[#202A35]">Awasthi Consultancy</span>
-                  <span className="text-[9px] font-semibold text-[#C9272C] uppercase tracking-wider mt-0.5">Quick Directory</span>
+                  <span className="text-xs font-black text-[#16324F]">Awasthi Consultancy</span>
+                  <span className="text-[9px] font-semibold text-[#2563EB] uppercase tracking-wider mt-0.5">Quick Directory</span>
                 </div>
               </div>
               <button
@@ -187,10 +188,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => handleNav('')}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-rose-600 hover:bg-rose-50/60 font-bold text-sm transition-all text-left group cursor-pointer"
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-[#2563EB] hover:bg-[#EFF6FF] font-bold text-sm transition-all text-left group cursor-pointer"
               >
                 <span>Home</span>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all" />
               </button>
 
               {/* Services */}
@@ -198,10 +199,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   type="button"
                   onClick={() => handleNav('#services')}
-                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-rose-600 hover:bg-rose-50/60 font-bold text-sm transition-all text-left group cursor-pointer"
+                  className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-[#2563EB] hover:bg-[#EFF6FF] font-bold text-sm transition-all text-left group cursor-pointer"
                 >
                   <span>Services (23 Core Solutions)</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all" />
                 </button>
 
                 {/* Sub-categories */}
@@ -211,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       key={cat.key}
                       type="button"
                       onClick={() => handleCategoryClick(cat.key)}
-                      className="px-3 py-1.5 text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 rounded-lg text-left transition-colors flex items-center justify-between cursor-pointer"
+                      className="px-3 py-1.5 text-xs text-slate-600 hover:text-[#16324F] hover:bg-[#EFF6FF]/70 rounded-lg text-left transition-colors flex items-center justify-between cursor-pointer"
                     >
                       <span>{cat.label}</span>
                       <span className="text-[10px] text-slate-400">→</span>
@@ -224,7 +225,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => handleNav('#reviews')}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-amber-700 hover:bg-amber-50/60 font-bold text-sm transition-all text-left group cursor-pointer"
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-[#2563EB] hover:bg-[#EFF6FF] font-bold text-sm transition-all text-left group cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <span>Trusted by Our Customers</span>
@@ -233,24 +234,24 @@ export const Navbar: React.FC<NavbarProps> = ({
                     4.9 ★
                   </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all" />
               </button>
 
               {/* About ACS */}
               <button
                 type="button"
                 onClick={() => handleNav('#about')}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-rose-600 hover:bg-rose-50/60 font-bold text-sm transition-all text-left group cursor-pointer"
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-800 hover:text-[#2563EB] hover:bg-[#EFF6FF] font-bold text-sm transition-all text-left group cursor-pointer"
               >
                 <span>About ACS & Representative</span>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all" />
               </button>
 
               {/* Contact Desk */}
               <button
                 type="button"
                 onClick={() => handleNav('#contact')}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white font-bold text-sm shadow-md shadow-[#C9272C]/20 transition-all text-left group cursor-pointer mt-1"
+                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm shadow-md shadow-[#2563EB]/25 transition-all text-left group cursor-pointer mt-1"
               >
                 <span>Discuss Your Requirement</span>
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-all" />
@@ -262,9 +263,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-xs text-slate-600 flex-shrink-0">
               <a
                 href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-                className="inline-flex items-center gap-1.5 font-bold text-slate-800 hover:text-rose-600 bg-slate-100 hover:bg-slate-200/80 px-3 py-1.5 rounded-xl transition-colors"
+                className="inline-flex items-center gap-1.5 font-bold text-[#16324F] hover:text-[#2563EB] bg-[#EFF6FF] hover:bg-[#DCEBFF] px-3 py-1.5 rounded-xl transition-colors"
               >
-                <PhoneCall className="w-3.5 h-3.5 text-rose-600" />
+                <PhoneCall className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span className="font-mono text-[11px]">{COMPANY_INFO.phones[0]}</span>
               </a>
 
@@ -272,10 +273,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={COMPANY_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1.5 rounded-xl transition-colors"
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-[#16324F] hover:text-[#2563EB] bg-[#EFF6FF] hover:bg-[#DCEBFF] px-2.5 py-1.5 rounded-xl transition-colors"
                 title="Google Maps Location"
               >
-                <MapPin className="w-3.5 h-3.5 text-rose-600" />
+                <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>Bhopal Maps</span>
                 <ExternalLink className="w-3 h-3 text-slate-400" />
               </a>

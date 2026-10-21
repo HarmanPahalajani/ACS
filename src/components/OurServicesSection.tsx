@@ -159,38 +159,38 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
     switch (catKey) {
       case 'registration':
         return {
-          pill: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
+          pill: 'bg-[#E6F1E6] text-emerald-900 border-[#A8C3A0]/60',
           dot: 'bg-emerald-500',
           accent: 'text-emerald-700',
-          hoverBg: 'hover:bg-emerald-50/40'
+          hoverBg: 'hover:bg-[#E6F1E6]/40'
         };
       case 'taxation':
         return {
-          pill: 'bg-blue-50 text-blue-800 border-blue-200/80',
-          dot: 'bg-blue-500',
-          accent: 'text-blue-700',
-          hoverBg: 'hover:bg-blue-50/40'
+          pill: 'bg-[#EFF6FF] text-blue-900 border-[#2563EB]/30',
+          dot: 'bg-[#2563EB]',
+          accent: 'text-[#2563EB]',
+          hoverBg: 'hover:bg-[#EFF6FF]/60'
         };
       case 'accounting':
         return {
-          pill: 'bg-rose-50 text-rose-800 border-rose-200/80',
-          dot: 'bg-rose-500',
-          accent: 'text-rose-700',
-          hoverBg: 'hover:bg-rose-50/40'
+          pill: 'bg-[#E0F2F1] text-teal-900 border-[#399A9A]/40',
+          dot: 'bg-[#399A9A]',
+          accent: 'text-[#399A9A]',
+          hoverBg: 'hover:bg-[#E0F2F1]/50'
         };
       case 'documentation':
         return {
-          pill: 'bg-purple-50 text-purple-800 border-purple-200/80',
+          pill: 'bg-[#F0EDFF] text-purple-900 border-purple-200/80',
           dot: 'bg-purple-500',
           accent: 'text-purple-700',
-          hoverBg: 'hover:bg-purple-50/40'
+          hoverBg: 'hover:bg-[#F0EDFF]/50'
         };
       case 'loans':
         return {
-          pill: 'bg-amber-50 text-amber-900 border-amber-200/80',
+          pill: 'bg-amber-50 text-amber-900 border-[#D6B36A]/50',
           dot: 'bg-amber-500',
-          accent: 'text-amber-700',
-          hoverBg: 'hover:bg-amber-50/40'
+          accent: 'text-amber-800',
+          hoverBg: 'hover:bg-amber-50/50'
         };
     }
   };
@@ -220,12 +220,12 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             <div className="space-y-3 sm:space-y-3.5">
               <div className="flex items-center justify-between gap-3 sm:gap-4">
                 <div className="space-y-2 sm:space-y-2.5 min-w-0 flex-1">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/70 text-[#C9272C] text-xs font-bold tracking-wide">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#2563EB]/25 text-[#2563EB] text-xs font-bold tracking-wide">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Our Practice Areas</span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#202A35] tracking-tight leading-[1.2] sm:leading-[1.18]">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#16324F] tracking-tight leading-[1.2] sm:leading-[1.18]">
                     Services Offered
                   </h2>
                 </div>
@@ -254,7 +254,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search services (e.g. GST, Gumasta, ITR, CMA)..."
-                className="w-full pl-10 pr-9 py-2.5 sm:py-2 rounded-xl bg-white border border-[#E7E5E0] text-[#202A35] text-base sm:text-sm font-medium placeholder:text-[#667085] focus:outline-none focus:border-[#C9272C] focus:ring-2 focus:ring-[#C9272C]/15 shadow-2xs transition-all"
+                className="w-full pl-10 pr-9 py-2.5 sm:py-2 rounded-xl bg-white border border-[#E7E5E0] text-[#16324F] text-base sm:text-sm font-medium placeholder:text-[#667085] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/15 shadow-2xs transition-all"
                 aria-label="Filter services by keyword"
               />
               {searchQuery && (
@@ -283,13 +283,13 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 onClick={() => setActiveCategory('all')}
                 className={`w-full flex items-center justify-between px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl text-left text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                   activeCategory === 'all'
-                    ? 'bg-[#202A35] text-white shadow-sm shadow-[#202A35]/10'
-                    : 'text-[#667085] hover:text-[#202A35] hover:bg-white/80'
+                    ? 'bg-[#16324F] text-white shadow-sm shadow-[#16324F]/10'
+                    : 'text-[#667085] hover:text-[#16324F] hover:bg-white/80'
                 }`}
               >
                 <span>All Practice Areas</span>
                 <span className={`text-xs font-mono px-2 py-0.5 rounded-full ${
-                  activeCategory === 'all' ? 'bg-slate-700 text-slate-200' : 'bg-slate-200/70 text-slate-600'
+                  activeCategory === 'all' ? 'bg-[#2563EB] text-white' : 'bg-slate-200/70 text-slate-600'
                 }`}>
                   {SERVICES_CATALOG.length}
                 </span>
@@ -309,8 +309,8 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                     onClick={() => setActiveCategory(cat.key)}
                     className={`w-full flex items-center justify-between px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl text-left text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                       isSelected
-                        ? 'bg-white border-l-4 border-[#C9272C] text-[#202A35] shadow-2xs'
-                        : 'text-[#667085] hover:text-[#202A35] hover:bg-white/80'
+                        ? 'bg-white border-l-4 border-[#2563EB] text-[#16324F] shadow-2xs'
+                        : 'text-[#667085] hover:text-[#16324F] hover:bg-white/80'
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -321,7 +321,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                     </div>
 
                     <span className={`text-xs font-mono px-2 py-0.5 rounded-full flex-shrink-0 ${
-                      isSelected ? 'bg-rose-50 text-[#C9272C] font-bold' : 'bg-slate-200/70 text-slate-600'
+                      isSelected ? 'bg-[#EFF6FF] text-[#2563EB] font-bold' : 'bg-slate-200/70 text-slate-600'
                     }`}>
                       {count}
                     </span>
@@ -332,7 +332,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
 
             {/* Direct Consultation Desk Prompt */}
             <div className="hidden lg:block p-3.5 rounded-xl bg-white border border-[#E7E5E0] shadow-2xs space-y-2">
-              <div className="text-xs font-bold text-[#202A35]">
+              <div className="text-xs font-bold text-[#16324F]">
                 Need urgent compliance advice?
               </div>
               <p className="text-[11px] text-[#667085] leading-relaxed">
@@ -341,9 +341,9 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
               <div className="flex flex-col gap-1.5 pt-0.5">
                 <a
                   href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C9272C] hover:text-[#B22025] transition-colors pt-0.5 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors pt-0.5 cursor-pointer"
                 >
-                  <PhoneCall className="w-3.5 h-3.5 text-[#C9272C]" />
+                  <PhoneCall className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>Call {COMPANY_INFO.phones[0]}</span>
                 </a>
                 <a
@@ -358,9 +358,9 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsUpiModalOpen(true)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors pt-0.5 cursor-pointer text-left"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors pt-0.5 cursor-pointer text-left"
                 >
-                  <QrCode className="w-3.5 h-3.5 text-indigo-600" />
+                  <QrCode className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>Pay via Paytm / PhonePe</span>
                 </button>
               </div>
@@ -392,8 +392,8 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                   onClick={() => setActiveCategory('all')}
                   className={`px-2.5 py-1.5 xs:px-3 rounded-xl text-[11px] xs:text-xs font-bold transition-all duration-150 cursor-pointer ${
                     activeCategory === 'all'
-                      ? 'bg-[#202A35] text-white shadow-2xs'
-                      : 'bg-white text-[#202A35] border border-[#E7E5E0] hover:bg-[#FAF9F6]'
+                      ? 'bg-[#16324F] text-white shadow-2xs'
+                      : 'bg-white text-[#16324F] border border-[#E7E5E0] hover:bg-[#FAF9F6]'
                   }`}
                 >
                   All ({SERVICES_CATALOG.length})
@@ -411,8 +411,8 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                       onClick={() => setActiveCategory(cat.key)}
                       className={`px-2 py-1.5 xs:px-2.5 rounded-xl text-[11px] xs:text-xs font-bold transition-all duration-150 cursor-pointer ${
                         isSelected
-                          ? 'bg-[#C9272C] text-white shadow-2xs'
-                          : 'bg-white text-[#202A35] border border-[#E7E5E0] hover:bg-[#FAF9F6]'
+                          ? 'bg-[#2563EB] text-white shadow-2xs'
+                          : 'bg-white text-[#16324F] border border-[#E7E5E0] hover:bg-[#FAF9F6]'
                       }`}
                     >
                       {cat.shortLabel} ({count})
@@ -423,15 +423,15 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
 
               {/* Mobile Urgent Advice Direct Prompt */}
               <div className="p-2.5 rounded-xl bg-white border border-[#E7E5E0] shadow-2xs flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-[11px] font-bold text-[#202A35]">
+                <span className="text-[11px] font-bold text-[#16324F]">
                   Need urgent compliance advice?
                 </span>
                 <div className="flex items-center gap-2.5">
                   <a
                     href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#C9272C] hover:text-[#B22025] transition-colors"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors"
                   >
-                    <PhoneCall className="w-3 h-3 text-[#C9272C]" />
+                    <PhoneCall className="w-3 h-3 text-[#2563EB]" />
                     <span>Call</span>
                   </a>
                   <a
@@ -446,9 +446,9 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsUpiModalOpen(true)}
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors cursor-pointer"
                   >
-                    <QrCode className="w-3 h-3 text-indigo-600" />
+                    <QrCode className="w-3 h-3 text-[#2563EB]" />
                     <span>Pay via Paytm / PhonePe</span>
                   </button>
                 </div>
@@ -458,7 +458,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             {/* Directory Filter / Status Header */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-200 text-xs font-medium text-slate-500">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-slate-900">
+                <span className="font-bold text-[#16324F]">
                   {activeCategory === 'all' ? 'All Practice Areas' : activeCategoryObject?.label}
                 </span>
                 <span>•</span>
@@ -472,7 +472,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                     setActiveCategory('all');
                     setSearchQuery('');
                   }}
-                  className="text-rose-600 hover:text-rose-700 font-bold transition-colors cursor-pointer"
+                  className="text-[#2563EB] hover:text-[#1D4ED8] font-bold transition-colors cursor-pointer"
                 >
                   View All Services
                 </button>
@@ -489,9 +489,14 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 aria-label="Practice Services Directory"
               >
               
-              {filteredServices.map((service) => {
+              {filteredServices.map((service, index) => {
                 const isExpanded = expandedServiceId === service.id;
                 const theme = getCategoryTheme(service.category);
+                const surfaceBg = index % 3 === 0 
+                  ? 'bg-white' 
+                  : index % 3 === 1 
+                    ? 'bg-[#EFF6FF]/40' 
+                    : 'bg-[#E6F1E6]/30';
 
                 return (
                   <article
@@ -499,21 +504,21 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                     ref={el => { rowRefs.current[service.id] = el; }}
                     id={`service-${service.id}`}
                     className={`transition-colors duration-200 ${
-                      isExpanded ? 'bg-[#FAF9F6]/40' : 'hover:bg-[#FAF9F6]/60'
+                      isExpanded ? 'bg-[#DCEBFF]/35' : `${surfaceBg} hover:bg-[#EFF6FF]/70`
                     }`}
                   >
                     {/* Primary Clickable Editorial Row */}
                     <button
                       type="button"
                       onClick={() => toggleService(service.id)}
-                      className="w-full text-left p-3 sm:p-4 sm:px-5 flex items-start sm:items-center justify-between gap-2.5 sm:gap-4 group cursor-pointer focus:outline-none focus-visible:bg-rose-50/40"
+                      className="w-full text-left p-3 sm:p-4 sm:px-5 flex items-start sm:items-center justify-between gap-2.5 sm:gap-4 group cursor-pointer focus:outline-none focus-visible:bg-[#EFF6FF]/70"
                       aria-expanded={isExpanded}
                       aria-controls={`service-detail-${service.id}`}
                     >
                       <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
                         
                         {/* Restrained Mono Service Number */}
-                        <span className="font-mono text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#C9272C] transition-colors w-6 sm:w-7 flex-shrink-0 pt-0.5 sm:pt-0">
+                        <span className="font-mono text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#2563EB] transition-colors w-6 sm:w-7 flex-shrink-0 pt-0.5 sm:pt-0">
                           {service.num}
                         </span>
 
@@ -525,7 +530,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                         {/* Service Title and Short Description */}
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                            <h3 className="text-xs sm:text-base font-bold text-[#202A35] group-hover:text-[#C9272C] transition-colors">
+                            <h3 className="text-xs sm:text-base font-bold text-[#16324F] group-hover:text-[#2563EB] transition-colors">
                               {service.title}
                             </h3>
 
@@ -536,7 +541,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                             </span>
                           </div>
 
-                          <p className="text-[11px] sm:text-sm text-slate-500 font-normal leading-relaxed mt-0.5 sm:mt-1 line-clamp-2 sm:line-clamp-1">
+                          <p className="text-[11px] sm:text-sm text-[#29332F]/80 font-normal leading-relaxed mt-0.5 sm:mt-1 line-clamp-2 sm:line-clamp-1">
                             {service.shortDesc}
                           </p>
                         </div>
@@ -545,13 +550,13 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
 
                       {/* Right Indicator / Expand Chevron */}
                       <div className="flex items-center gap-2 flex-shrink-0 pt-0.5 sm:pt-0">
-                        <span className="hidden sm:inline-block text-xs font-bold text-slate-400 group-hover:text-rose-600 transition-colors">
+                        <span className="hidden sm:inline-block text-xs font-bold text-slate-400 group-hover:text-[#2563EB] transition-colors">
                           {isExpanded ? 'Hide' : 'Details'}
                         </span>
                         <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
                           isExpanded 
-                            ? 'bg-rose-600 border-rose-600 text-white rotate-180 shadow-2xs' 
-                            : 'bg-slate-50 border-slate-200 text-slate-500 group-hover:border-slate-300 group-hover:bg-white group-hover:text-slate-900'
+                            ? 'bg-[#2563EB] border-[#2563EB] text-white rotate-180 shadow-2xs' 
+                            : 'bg-slate-50 border-slate-200 text-slate-500 group-hover:border-slate-300 group-hover:bg-white group-hover:text-[#16324F]'
                         }`}>
                           <ChevronDown className="w-4 h-4 transition-transform duration-200" />
                         </div>
@@ -597,7 +602,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                           {/* Documents Commonly Required */}
                           <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
                             <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                              <FileText className="w-3.5 h-3.5 text-blue-600" />
+                              <FileText className="w-3.5 h-3.5 text-[#2563EB]" />
                               <span>Commonly Required Documents</span>
                             </div>
                             {service.documentsRequired && service.documentsRequired.length > 0 ? (
@@ -639,7 +644,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                               href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
                               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors cursor-pointer"
                             >
-                              <PhoneCall className="w-3.5 h-3.5 text-rose-600" />
+                              <PhoneCall className="w-3.5 h-3.5 text-[#2563EB]" />
                               <span>Call Desk</span>
                             </a>
 
@@ -650,7 +655,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                                   onRequestConsultation(service.title);
                                 }
                               }}
-                              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#C9272C] hover:bg-[#B22025] text-white text-xs font-bold shadow-xs hover:shadow transition-all cursor-pointer"
+                              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold shadow-xs hover:shadow transition-all cursor-pointer"
                             >
                               <span>Inquire for {service.title}</span>
                               <ArrowRight className="w-3.5 h-3.5" />
@@ -721,17 +726,17 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             </button>
 
             {/* Icon Badge */}
-            <div className="w-10 h-10 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-3 mx-auto shadow-2xs">
+            <div className="w-10 h-10 rounded-full bg-[#EFF6FF] border border-[#2563EB]/25 flex items-center justify-center text-[#2563EB] mb-3 mx-auto shadow-2xs">
               <QrCode className="w-5 h-5" />
             </div>
 
             {/* Modal Heading */}
-            <h3 id="upi-modal-title" className="text-xl font-black text-[#1E293B] tracking-tight">
+            <h3 id="upi-modal-title" className="text-xl font-black text-[#16324F] tracking-tight">
               Pay via UPI
             </h3>
 
             {/* Subtitle / Instructions */}
-            <p className="text-xs text-[#64748B] font-medium mt-1">
+            <p className="text-xs text-[#29332F]/70 font-medium mt-1">
               Scan the QR code using Paytm, PhonePe, Google Pay, or any UPI app.
             </p>
 
@@ -745,14 +750,14 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             </div>
 
             {/* Supported Apps */}
-            <div className="mt-3 text-[11px] text-[#94A3B8] font-medium">
+            <div className="mt-3 text-[11px] text-[#29332F]/60 font-medium">
               Paytm • PhonePe • Google Pay • BHIM • Any UPI App
             </div>
 
             <button
               type="button"
               onClick={() => setIsUpiModalOpen(false)}
-              className="mt-4 w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors cursor-pointer"
+              className="mt-4 w-full py-2.5 rounded-xl bg-[#16324F] hover:bg-[#2563EB] text-white text-xs font-bold transition-colors cursor-pointer"
             >
               Done / Close
             </button>

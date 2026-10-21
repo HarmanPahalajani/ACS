@@ -2,9 +2,9 @@ import React from 'react';
 
 /**
  * SiteBackground: Continuous, subtle, architectural background system
- * Layer 1: Warm ivory base (#FAF9F6)
+ * Layer 1: Warm ivory base (#FAF9F4)
  * Layer 2: Extremely subtle architectural fine-line grid (64px)
- * Layer 3: Soft ambient static radial gradients in warm sand (#E9E2D8) and restrained ACS-red blush
+ * Layer 3: Soft ambient static radial gradients in sky blue, soft mint, and warm gold
  * Document Details: Restrained registration marks (+) and ledger reference rules
  */
 export const SiteBackground: React.FC = () => {
@@ -15,7 +15,7 @@ export const SiteBackground: React.FC = () => {
       aria-hidden="true"
     >
       {/* Layer 1: Warm Ivory Base */}
-      <div className="absolute inset-0 bg-[#FAF9F6]" />
+      <div className="absolute inset-0 bg-[#FAF9F4]" />
 
       {/* Layer 2: Continuous Architectural Fine-Line Grid */}
       <div className="absolute inset-0 site-canvas-grid opacity-60" />

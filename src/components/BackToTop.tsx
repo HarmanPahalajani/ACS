@@ -49,7 +49,7 @@ export const BackToTop: React.FC = () => {
         type="button"
         onClick={() => scrollToTop()}
         aria-label="Scroll back to top of page"
-        className="group flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#202A35] hover:text-[#C9272C] border border-[#E7E5E0] shadow-lg shadow-[#202A35]/10 hover:shadow-xl hover:shadow-[#C9272C]/15 focus:outline-none focus:ring-2 focus:ring-[#C9272C]/30 focus:border-[#C9272C] transition-all duration-200 active:scale-95 cursor-pointer backdrop-blur-md"
+        className="group flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#16324F] hover:text-[#2563EB] border border-[#E7E5E0] shadow-lg shadow-[#16324F]/10 hover:shadow-xl hover:shadow-[#2563EB]/15 focus:outline-none focus:ring-2 focus:ring-[#2563EB]/30 focus:border-[#2563EB] transition-all duration-200 active:scale-95 cursor-pointer backdrop-blur-md"
         title="Back to Top"
       >
         <ArrowUp className="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5" />

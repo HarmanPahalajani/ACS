@@ -87,16 +87,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               : 'opacity-0 translate-y-8 pointer-events-none'
           }`}
         >
-          <div className="relative bg-gradient-to-b from-white/95 via-[#FAF9F6]/85 to-white/80 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#C9272C]/35 ring-1 ring-[#C9272C]/15 shadow-[0_16px_45px_rgba(201,39,44,0.08),_0_4px_12px_rgba(32,42,53,0.04),_inset_0_1px_1.5px_rgba(255,255,255,0.95),_inset_0_-1px_1px_rgba(255,255,255,0.5)] rounded-2xl sm:rounded-3xl py-2 sm:py-2.5 px-3.5 sm:px-6 overflow-hidden">
+          <div className="relative bg-gradient-to-b from-[#16324F]/95 via-[#132840]/95 to-[#0F2033]/98 backdrop-blur-2xl backdrop-saturate-150 border-2 border-[#2563EB]/35 ring-1 ring-[#2563EB]/20 shadow-[0_16px_45px_rgba(22,50,79,0.5),_0_4px_12px_rgba(22,50,79,0.3),_inset_0_1px_1.5px_rgba(255,255,255,0.15)] rounded-2xl sm:rounded-3xl py-2 sm:py-2.5 px-3.5 sm:px-6 overflow-hidden">
           
           {/* Liquid Glass Top Specular Rim */}
-          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none" />
+          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#60A5FA]/40 to-transparent pointer-events-none" />
           
-          {/* Subtle Ambient Liquid Glass Sheen */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-transparent to-[#FAF9F6]/15 pointer-events-none rounded-2xl sm:rounded-3xl" />
+          {/* Subtle Ambient Sheen */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-[#2563EB]/5 pointer-events-none rounded-2xl sm:rounded-3xl" />
           
-          {/* Soft Warm Diagonal Reflection */}
-          <div className="absolute -top-10 left-1/4 w-72 sm:w-96 h-16 bg-gradient-to-r from-amber-100/15 via-white/30 to-transparent blur-xl pointer-events-none -rotate-3" />
+          {/* Soft Warm Teal/Gold Glow */}
+          <div className="absolute -top-10 left-1/4 w-72 sm:w-96 h-16 bg-gradient-to-r from-[#399A9A]/20 via-[#2563EB]/20 to-transparent blur-xl pointer-events-none -rotate-3" />
           
           {/* =========================================================================
               1. DESKTOP & TABLET FOOTER LAYOUT (hidden sm:block)
@@ -119,10 +119,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                   className="h-8 lg:h-9 w-auto aspect-square object-contain shrink-0 transition-transform group-hover:scale-105"
                 />
                 <div className="flex flex-col justify-center leading-tight">
-                  <span className="text-xs lg:text-sm font-black tracking-tight text-[#202A35] group-hover:text-[#C9272C] transition-colors">
+                  <span className="text-xs lg:text-sm font-black tracking-tight text-[#FAF9F4] group-hover:text-[#60A5FA] transition-colors">
                     Awasthi Consultancy Services
                   </span>
-                  <span className="text-[9.5px] lg:text-[10px] font-semibold text-[#667085] uppercase tracking-wider hidden md:block">
+                  <span className="text-[9.5px] lg:text-[10px] font-semibold text-[#DCEBFF]/70 uppercase tracking-wider hidden md:block">
                     Taxation & Compliance • Bhopal Desk
                   </span>
                 </div>
@@ -131,38 +131,38 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               {/* Center-Right: Essential Nav Links & Discuss Requirement */}
               <nav 
                 aria-label="Footer Navigation"
-                className="flex items-center gap-x-2 md:gap-x-2.5 lg:gap-x-4 text-[11px] lg:text-xs font-bold text-[#202A35]"
+                className="flex items-center gap-x-2 md:gap-x-2.5 lg:gap-x-4 text-[11px] lg:text-xs font-bold text-[#FAF9F4]"
               >
                 <button 
                   type="button"
                   onClick={() => handleNav('')} 
-                  className="hover:text-[#C9272C] transition-colors cursor-pointer py-1"
+                  className="hover:text-[#60A5FA] transition-colors cursor-pointer py-1"
                 >
                   Home
                 </button>
                 <button 
                   type="button"
                   onClick={() => handleNav('#services')} 
-                  className="hover:text-[#C9272C] transition-colors cursor-pointer py-1"
+                  className="hover:text-[#60A5FA] transition-colors cursor-pointer py-1"
                 >
                   Services
                 </button>
                 <button 
                   type="button"
                   onClick={() => handleNav('#reviews')} 
-                  className="inline-flex items-center gap-1 hover:text-amber-700 transition-colors cursor-pointer py-1 whitespace-nowrap"
+                  className="inline-flex items-center gap-1 hover:text-[#D6B36A] transition-colors cursor-pointer py-1 whitespace-nowrap"
                 >
                   <span className="hidden xl:inline">Trusted by Our Customers</span>
                   <span className="xl:hidden">Reviews</span>
-                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-black bg-amber-100 text-amber-800">
-                    <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" />
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-black bg-[#D6B36A]/20 text-[#D6B36A] border border-[#D6B36A]/40">
+                    <Star className="w-2.5 h-2.5 fill-[#D6B36A] text-[#D6B36A]" />
                     4.9
                   </span>
                 </button>
                 <button 
                   type="button"
                   onClick={() => handleNav('#about')} 
-                  className="hover:text-[#C9272C] transition-colors cursor-pointer py-1 whitespace-nowrap"
+                  className="hover:text-[#60A5FA] transition-colors cursor-pointer py-1 whitespace-nowrap"
                 >
                   <span className="hidden lg:inline">About ACS</span>
                   <span className="lg:hidden">About</span>
@@ -170,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                 <button 
                   type="button"
                   onClick={() => handleNav('#contact')} 
-                  className="text-[#C9272C] hover:text-[#B22025] font-black transition-colors cursor-pointer py-1 whitespace-nowrap"
+                  className="text-[#60A5FA] hover:text-[#93C5FD] font-black transition-colors cursor-pointer py-1 whitespace-nowrap"
                 >
                   <span className="hidden lg:inline">Discuss Requirement →</span>
                   <span className="lg:hidden">Inquire →</span>
@@ -181,10 +181,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               <div className="flex items-center gap-1 md:gap-1.5 shrink-0 pl-1">
                 <a 
                   href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`} 
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-white/80 hover:bg-white text-slate-800 border border-white/80 shadow-[0_1px_2px_rgba(32,42,53,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] text-[10.5px] lg:text-[11px] font-bold transition-all shrink-0"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-white/10 hover:bg-[#2563EB] text-[#FAF9F4] border border-white/15 text-[10.5px] lg:text-[11px] font-bold transition-all shrink-0"
                   title={`Call ${COMPANY_INFO.phones[0]}`}
                 >
-                  <PhoneCall className="w-3 h-3 text-rose-600 shrink-0" />
+                  <PhoneCall className="w-3 h-3 text-[#60A5FA] shrink-0" />
                   <span className="font-mono text-[10.5px] hidden xl:inline">{COMPANY_INFO.phones[0]}</span>
                   <span className="text-[10.5px] xl:hidden">Call</span>
                 </a>
@@ -193,18 +193,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                   href={COMPANY_INFO.googleMapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-50/85 hover:bg-amber-100/95 text-amber-900 border border-amber-200/80 shadow-[0_1px_2px_rgba(32,42,53,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] text-[10.5px] lg:text-[11px] font-bold transition-all shrink-0"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-[#399A9A]/20 hover:bg-[#399A9A]/40 text-[#FAF9F4] border border-[#399A9A]/40 text-[10.5px] lg:text-[11px] font-bold transition-all shrink-0"
                   title="Google Maps Location"
                 >
-                  <MapPin className="w-3 h-3 text-rose-600 shrink-0" />
+                  <MapPin className="w-3 h-3 text-[#399A9A] shrink-0" />
                   <span className="hidden lg:inline text-[10.5px]">Maps</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-amber-600 shrink-0" />
+                  <ExternalLink className="w-2.5 h-2.5 text-[#399A9A] shrink-0" />
                 </a>
 
                 <button
                   type="button"
                   onClick={() => scrollToTop()}
-                  className="p-1 rounded-lg bg-white/80 hover:bg-white text-slate-600 hover:text-slate-900 border border-white/80 shadow-[0_1px_2px_rgba(32,42,53,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all cursor-pointer shrink-0 hidden lg:block"
+                  className="p-1 rounded-lg bg-white/10 hover:bg-[#2563EB] text-[#FAF9F4] border border-white/15 transition-all cursor-pointer shrink-0 hidden lg:block"
                   title="Scroll back to top"
                   aria-label="Back to top"
                 >
@@ -214,22 +214,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
 
             </div>
 
-            {/* Hairline Glass Divider */}
-            <div className="h-px bg-gradient-to-r from-transparent via-[#E7E5E0] to-transparent my-1.5" />
+            {/* Hairline Divider */}
+            <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent my-1.5" />
 
             {/* Row 2: Copyright, Address, and Representative */}
-            <div className="flex items-center justify-between gap-x-4 text-[10.5px] text-[#667085] py-0.5 leading-none">
+            <div className="flex items-center justify-between gap-x-4 text-[10.5px] text-[#DCEBFF]/70 py-0.5 leading-none">
               <div className="shrink-0">
                 © {CURRENT_YEAR} Awasthi Consultancy Services (ACS). All rights reserved.
               </div>
 
-              <div className="flex items-center gap-1 text-[#202A35] truncate max-w-xl mx-2">
-                <MapPin className="w-3 h-3 text-[#C9272C] shrink-0" />
+              <div className="flex items-center gap-1 text-[#FAF9F4]/90 truncate max-w-xl mx-2">
+                <MapPin className="w-3 h-3 text-[#399A9A] shrink-0" />
                 <span className="truncate">{COMPANY_INFO.address}, {COMPANY_INFO.city}, {COMPANY_INFO.state} – {COMPANY_INFO.pincode}</span>
               </div>
 
-              <div className="shrink-0 text-[#667085]">
-                <span>Representative: <strong className="text-[#202A35] font-semibold">{COMPANY_INFO.representative}</strong></span>
+              <div className="shrink-0 text-[#DCEBFF]/70">
+                <span>Representative: <strong className="text-[#FAF9F4] font-semibold">{COMPANY_INFO.representative}</strong></span>
               </div>
             </div>
 
@@ -253,7 +253,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                   alt="ACS" 
                   className="h-6 w-auto aspect-square object-contain shrink-0"
                 />
-                <span className="text-xs font-black text-[#202A35] truncate">
+                <span className="text-xs font-black text-[#FAF9F4] truncate">
                   Awasthi Consultancy
                 </span>
               </button>
@@ -261,7 +261,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
               <div className="flex items-center gap-1 shrink-0">
                 <a 
                   href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`} 
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-[#C9272C] text-white text-[10px] font-bold shadow-xs active:bg-[#B22025] shrink-0"
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-[#2563EB] text-white text-[10px] font-bold shadow-xs active:bg-[#1D4ED8] shrink-0"
                   title="Call Primary Desk"
                 >
                   <PhoneCall className="w-2.5 h-2.5" />
@@ -271,15 +271,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
                   href={COMPANY_INFO.googleMapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-1 rounded-lg bg-amber-50/90 text-amber-800 border border-amber-200/80 shadow-[0_1px_2px_rgba(32,42,53,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] shrink-0"
+                  className="p-1 rounded-lg bg-[#399A9A]/20 text-[#399A9A] border border-[#399A9A]/40 shrink-0"
                   aria-label="Google Maps"
                 >
-                  <MapPin className="w-3 h-3 text-rose-600" />
+                  <MapPin className="w-3 h-3 text-[#399A9A]" />
                 </a>
                 <button
                   type="button"
                   onClick={() => scrollToTop()}
-                  className="p-1 rounded-lg bg-white/80 text-slate-600 border border-white/80 shadow-[0_1px_2px_rgba(32,42,53,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] shrink-0"
+                  className="p-1 rounded-lg bg-white/10 text-[#FAF9F4] border border-white/15 shrink-0"
                   aria-label="Back to top"
                 >
                   <ArrowUp className="w-3 h-3" />
@@ -290,27 +290,27 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateHome }) => {
             {/* Navigation Strip */}
             <nav 
               aria-label="Mobile Footer Navigation"
-              className="flex items-center justify-between text-[10px] font-bold text-slate-700 pt-0.5 border-t border-white/80"
+              className="flex items-center justify-between text-[10px] font-bold text-[#DCEBFF] pt-0.5 border-t border-white/10"
             >
-              <button type="button" onClick={() => handleNav('')} className="hover:text-rose-600 py-0.5">
+              <button type="button" onClick={() => handleNav('')} className="hover:text-[#60A5FA] py-0.5">
                 Home
               </button>
-              <button type="button" onClick={() => handleNav('#services')} className="hover:text-rose-600 py-0.5">
+              <button type="button" onClick={() => handleNav('#services')} className="hover:text-[#60A5FA] py-0.5">
                 Services
               </button>
-              <button type="button" onClick={() => handleNav('#reviews')} className="hover:text-amber-700 py-0.5">
+              <button type="button" onClick={() => handleNav('#reviews')} className="hover:text-[#D6B36A] py-0.5">
                 Reviews
               </button>
-              <button type="button" onClick={() => handleNav('#about')} className="hover:text-rose-600 py-0.5">
+              <button type="button" onClick={() => handleNav('#about')} className="hover:text-[#60A5FA] py-0.5">
                 About
               </button>
-              <button type="button" onClick={() => handleNav('#contact')} className="text-rose-600 font-black py-0.5">
+              <button type="button" onClick={() => handleNav('#contact')} className="text-[#60A5FA] font-black py-0.5">
                 Inquire →
               </button>
             </nav>
 
             {/* Mobile Address & Copyright */}
-            <div className="flex items-center justify-between text-[8px] text-slate-400 pt-0.5 border-t border-white/80 leading-tight">
+            <div className="flex items-center justify-between text-[8px] text-[#DCEBFF]/60 pt-0.5 border-t border-white/10 leading-tight">
               <span className="truncate pr-1">SR LIG, Ashoka Palace, Bhopal</span>
               <span className="shrink-0">© {CURRENT_YEAR} ACS • Pankaj Awasthi</span>
             </div>

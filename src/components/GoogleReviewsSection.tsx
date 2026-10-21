@@ -18,20 +18,21 @@ const GoogleGIcon: React.FC = () => (
 interface ReviewCardProps {
   text: string;
   rating: number;
+  isPaleBlue?: boolean;
 }
 
-const ReviewCard: React.FC<ReviewCardProps> = ({ text, rating }) => (
-  <div className="w-[195px] xs:w-[215px] sm:w-[350px] md:w-[380px] shrink-0 bg-white rounded-xl sm:rounded-2xl p-2.5 xs:p-3 sm:p-5 border border-[#E7E5E0] hover:border-amber-300 transition-all duration-200 shadow-2xs hover:shadow-xs flex flex-col justify-between group select-none relative">
+const ReviewCard: React.FC<ReviewCardProps> = ({ text, rating, isPaleBlue = false }) => (
+  <div className={`w-[195px] xs:w-[215px] sm:w-[350px] md:w-[380px] shrink-0 ${isPaleBlue ? 'bg-[#EFF6FF]/70' : 'bg-white'} rounded-xl sm:rounded-2xl p-2.5 xs:p-3 sm:p-5 border ${isPaleBlue ? 'border-[#2563EB]/20' : 'border-[#E7E5E0]'} hover:border-[#2563EB]/50 transition-all duration-200 shadow-2xs hover:shadow-xs flex flex-col justify-between group select-none relative`}>
     <div className="space-y-1.5 xs:space-y-2 sm:space-y-3">
       {/* Top Header: Rating Stars & Google Attribution */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1 sm:gap-1.5">
-          <div className="flex items-center text-amber-400">
+          <div className="flex items-center text-[#D6B36A]">
             {[...Array(rating)].map((_, i) => (
-              <Star key={i} className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+              <Star key={i} className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 fill-[#D6B36A] text-[#D6B36A]" />
             ))}
           </div>
-          <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-[#202A35]">5.0</span>
+          <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-[#16324F]">5.0</span>
         </div>
 
         <div className="flex items-center gap-0.5 xs:gap-1 px-1.5 py-0.5 rounded-full bg-slate-50 border border-slate-200 text-[9px] xs:text-[10px] font-semibold text-slate-600">
@@ -42,8 +43,8 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ text, rating }) => (
 
       {/* Review Quote Body */}
       <div className="relative pt-0.5 flex items-start gap-1.5 xs:gap-2">
-        <MessageSquareQuote className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-amber-400/80 shrink-0 mt-0.5" />
-        <p className="text-[10.5px] xs:text-[11.5px] sm:text-sm text-slate-700 leading-snug sm:leading-relaxed font-normal italic pr-1">
+        <MessageSquareQuote className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-[#2563EB]/60 shrink-0 mt-0.5" />
+        <p className="text-[10.5px] xs:text-[11.5px] sm:text-sm text-[#29332F]/85 leading-snug sm:leading-relaxed font-normal italic pr-1">
           “{text}”
         </p>
       </div>
@@ -51,7 +52,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ text, rating }) => (
 
     {/* Verified Reviewer Tag (No names/avatars) */}
     <div className="pt-2 xs:pt-2.5 sm:pt-3.5 mt-2 xs:mt-2.5 sm:mt-3.5 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-[11px]">
-      <span className="inline-flex items-center gap-0.5 xs:gap-1 text-[9px] xs:text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">
+      <span className="inline-flex items-center gap-0.5 xs:gap-1 text-[9px] xs:text-[10px] font-bold text-emerald-800 bg-[#E6F1E6] px-1.5 py-0.5 rounded-full border border-[#A8C3A0]/50">
         <CheckCircle className="w-2 h-2 xs:w-2.5 xs:h-2.5 text-emerald-600" />
         Verified Feedback
       </span>
@@ -98,45 +99,45 @@ export const GoogleReviewsSection: React.FC = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-90 translate-y-0'
           }`}
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] sm:text-xs font-bold tracking-wide">
-            <ShieldCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#E6F1E6] border border-[#A8C3A0]/60 text-emerald-800 text-[11px] sm:text-xs font-bold tracking-wide">
+            <ShieldCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-emerald-600" />
             <span>Verified Client Feedback</span>
           </div>
 
-          <h2 className="text-xl sm:text-4xl font-black text-[#202A35] tracking-tight">
+          <h2 className="text-xl sm:text-4xl font-black text-[#16324F] tracking-tight">
             Trusted by Our Customers
           </h2>
 
-          <p className="text-xs sm:text-base text-[#667085] font-normal leading-relaxed max-w-xl mx-auto">
+          <p className="text-xs sm:text-base text-[#29332F]/75 font-normal leading-relaxed max-w-xl mx-auto">
             Authentic customer reviews and ratings directly from our Google Maps business listing in Bhopal.
           </p>
 
           {/* Compact Integrated Rating Bar */}
           <div className="pt-0.5 sm:pt-1 flex justify-center">
-            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 p-1.5 sm:p-2.5 px-3 sm:px-5 rounded-xl sm:rounded-2xl bg-amber-50/90 border border-amber-200 shadow-2xs">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 p-1.5 sm:p-2.5 px-3 sm:px-5 rounded-xl sm:rounded-2xl bg-[#EFF6FF] border border-[#2563EB]/25 shadow-2xs">
               <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-3xl font-black text-[#202A35] leading-none">
+                <span className="text-xl sm:text-3xl font-black text-[#16324F] leading-none">
                   {COMPANY_INFO.rating}
                 </span>
                 <div className="flex flex-col items-start leading-none">
-                  <div className="flex items-center text-amber-400">
+                  <div className="flex items-center text-[#D6B36A]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#D6B36A] text-[#D6B36A]" />
                     ))}
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-semibold text-[#667085] mt-0.5">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-[#29332F]/70 mt-0.5">
                     {COMPANY_INFO.reviewCount}+ Google reviews
                   </span>
                 </div>
               </div>
 
-              <div className="h-5 w-px bg-amber-200 hidden sm:block" />
+              <div className="h-5 w-px bg-[#2563EB]/20 hidden sm:block" />
 
               <a
                 href={COMPANY_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] sm:text-xs shadow-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-[11px] sm:text-xs shadow-xs transition-colors"
               >
                 <span>View on Google Maps</span>
                 <ExternalLink className="w-3 h-3" />
@@ -153,8 +154,8 @@ export const GoogleReviewsSection: React.FC = () => {
         aria-label="Customer Reviews Marquee"
       >
         {/* Left & Right Edge Gradient Fades for seamless entry and exit against warm ivory background */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-28 md:w-36 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-28 md:w-36 bg-gradient-to-l from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-28 md:w-36 bg-gradient-to-r from-[#FAF9F4] via-[#FAF9F4]/85 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-28 md:w-36 bg-gradient-to-l from-[#FAF9F4] via-[#FAF9F4]/85 to-transparent z-20" />
 
         <div className="space-y-2.5 sm:space-y-5">
           {/* Row 1: Right to Left (Continuous linear movement) */}
@@ -166,6 +167,7 @@ export const GoogleReviewsSection: React.FC = () => {
                   key={`r1-orig-${review.id}-${i}`}
                   text={review.text}
                   rating={review.rating}
+                  isPaleBlue={i % 2 === 1}
                 />
               ))}
               {/* Duplicated Sequence for seamless loop */}
@@ -174,6 +176,7 @@ export const GoogleReviewsSection: React.FC = () => {
                   <ReviewCard
                     text={review.text}
                     rating={review.rating}
+                    isPaleBlue={i % 2 === 1}
                   />
                 </div>
               ))}
@@ -189,6 +192,7 @@ export const GoogleReviewsSection: React.FC = () => {
                   key={`r2-orig-${review.id}-${i}`}
                   text={review.text}
                   rating={review.rating}
+                  isPaleBlue={i % 2 === 0}
                 />
               ))}
               {/* Duplicated Sequence for seamless loop */}
@@ -197,6 +201,7 @@ export const GoogleReviewsSection: React.FC = () => {
                   <ReviewCard
                     text={review.text}
                     rating={review.rating}
+                    isPaleBlue={i % 2 === 0}
                   />
                 </div>
               ))}

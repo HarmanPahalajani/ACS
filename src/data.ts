@@ -56,11 +56,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     label: 'Accounting & Financial Reports',
     shortLabel: 'Accounting & Reports',
     description: 'Systematic bookkeeping, Profit & Loss reports, Balance Sheets, CMA reports for bank limits, and practical Tally training.',
-    colorName: 'rose',
-    badgeBg: 'bg-rose-100 dark:bg-rose-950/40',
-    badgeText: 'text-rose-700 dark:text-rose-400',
-    borderAccent: 'border-rose-500',
-    gradient: 'from-rose-500 to-red-600',
+    colorName: 'teal',
+    badgeBg: 'bg-teal-50 dark:bg-teal-950/40',
+    badgeText: 'text-teal-800 dark:text-teal-300',
+    borderAccent: 'border-[#399A9A]',
+    gradient: 'from-[#399A9A] to-teal-700',
     icon: 'Calculator'
   },
   {
@@ -334,7 +334,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     whoNeedsThis: "Small and medium business owners, retail shops, contractors, and service providers who need organized financial books.",
     tagline: "Clear books, zero clutter, and complete financial clarity.",
     icon: "BookOpenCheck",
-    badgeColor: "rose"
+    badgeColor: "teal"
   },
   {
     id: "profit-and-loss-statement",
@@ -354,7 +354,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     whoNeedsThis: "Traders, manufacturers, and service enterprises reviewing annual performance.",
     tagline: "Know your real bottom line to make confident commercial decisions.",
     icon: "TrendingUp",
-    badgeColor: "rose"
+    badgeColor: "teal"
   },
   {
     id: "balance-sheet",
@@ -374,7 +374,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     whoNeedsThis: "Firms seeking bank facilities, participating in tenders, or assessing net worth.",
     tagline: "A true, balanced snapshot of your business strength and solvency.",
     icon: "Scale",
-    badgeColor: "rose"
+    badgeColor: "teal"
   },
   {
     id: "tally-software-training",
@@ -394,7 +394,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     whoNeedsThis: "Commerce students, small business owners, in-house accountants, and billing clerks.",
     tagline: "Master real-world business accounting in practical layman terms.",
     icon: "GraduationCap",
-    badgeColor: "rose"
+    badgeColor: "teal"
   },
   {
     id: "cma-report",
@@ -414,7 +414,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     whoNeedsThis: "Businesses applying for Cash Credit (CC) limits, Overdraft (OD), or bank term loans.",
     tagline: "Professional financial dossiers structured to banker standards.",
     icon: "BarChart3",
-    badgeColor: "rose"
+    badgeColor: "teal"
   },
 
   // Category D: Digital & Personal Documentation
@@ -637,7 +637,7 @@ export const ACS_VALUES = [
     title: "Personalized Attention",
     desc: "Direct access to Mr. Pankaj Awasthi and senior consultants rather than automated chatbots or call-center runarounds.",
     icon: "UserCheck",
-    color: "rose"
+    color: "teal"
   },
   {
     title: "Transparent & Honest",

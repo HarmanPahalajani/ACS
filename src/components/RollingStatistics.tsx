@@ -9,7 +9,7 @@ interface StatItem {
   label: string;
   subtitle: string;
   icon: React.ComponentType<{ className?: string }>;
-  accentColor: string;
+  cardBg: string;
   iconBg: string;
 }
 
@@ -21,8 +21,8 @@ const STATS_DATA: StatItem[] = [
     label: 'Reviews',
     subtitle: `${COMPANY_INFO.rating} ★ Rating`,
     icon: Star,
-    accentColor: 'text-amber-500',
-    iconBg: 'bg-amber-50 border-amber-200/80 text-amber-600'
+    cardBg: 'bg-[#EFF6FF] border-[#DCEBFF] hover:border-[#2563EB]/40',
+    iconBg: 'bg-amber-50/90 border-[#D6B36A]/50 text-[#D6B36A]'
   },
   {
     id: 'services',
@@ -31,8 +31,8 @@ const STATS_DATA: StatItem[] = [
     label: 'Practice Services',
     subtitle: 'GST, ITR, Loans',
     icon: FileCheck2,
-    accentColor: 'text-emerald-600',
-    iconBg: 'bg-emerald-50 border-emerald-200/80 text-emerald-600'
+    cardBg: 'bg-[#E6F1E6]/75 border-[#A8C3A0]/60 hover:border-[#399A9A]/60',
+    iconBg: 'bg-white/80 border-[#A8C3A0]/80 text-[#399A9A]'
   },
   {
     id: 'filings',
@@ -41,8 +41,8 @@ const STATS_DATA: StatItem[] = [
     label: 'ITR Filings',
     subtitle: 'Successful Cases',
     icon: TrendingUp,
-    accentColor: 'text-blue-600',
-    iconBg: 'bg-blue-50 border-blue-200/80 text-blue-600'
+    cardBg: 'bg-[#DCEBFF]/45 border-[#2563EB]/25 hover:border-[#2563EB]/50',
+    iconBg: 'bg-white border-[#2563EB]/40 text-[#2563EB]'
   },
   {
     id: 'experience',
@@ -51,8 +51,8 @@ const STATS_DATA: StatItem[] = [
     label: 'Years in Practice',
     subtitle: 'Tax & Compliance',
     icon: Clock,
-    accentColor: 'text-rose-600',
-    iconBg: 'bg-rose-50 border-rose-200/80 text-rose-600'
+    cardBg: 'bg-[#FAF9F4] border-[#D6B36A]/45 hover:border-[#D6B36A]',
+    iconBg: 'bg-amber-50/90 border-[#D6B36A]/50 text-[#D6B36A]'
   }
 ];
 
@@ -141,23 +141,23 @@ export const RollingStatistics: React.FC = () => {
           return (
             <div
               key={stat.id}
-              className="bg-white/95 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-[#E7E5E0] shadow-2xs hover:shadow-xs transition-shadow select-none group flex items-center gap-2.5 sm:gap-3.5"
+              className={`${stat.cardBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 border shadow-2xs hover:shadow-xs transition-all select-none group flex items-center gap-2.5 sm:gap-3.5`}
             >
               {/* Left Side: Icon */}
-              <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl ${stat.iconBg} border flex items-center justify-center shrink-0`}>
+              <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl ${stat.iconBg} border flex items-center justify-center shrink-0 shadow-2xs`}>
                 <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
 
               {/* Right Side: Heading, Count, and Subtitle */}
               <div className="min-w-0 flex-1">
-                <div className="text-[20px] sm:text-2xl lg:text-[26px] font-extrabold text-[#0F172A] tracking-tight leading-none flex items-baseline tabular-nums">
+                <div className="text-[20px] sm:text-2xl lg:text-[26px] font-extrabold text-[#2563EB] tracking-tight leading-none flex items-baseline tabular-nums">
                   <span ref={(el) => { countRefs.current[idx] = el; }}>
                     0
                   </span>
                   <span>{stat.suffix}</span>
                 </div>
                 
-                <div className="text-xs sm:text-[13px] font-bold text-[#1E293B] leading-tight truncate mt-1">
+                <div className="text-xs sm:text-[13px] font-bold text-[#16324F] leading-tight truncate mt-1">
                   {stat.label}
                 </div>
 
