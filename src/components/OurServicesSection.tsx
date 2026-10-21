@@ -621,38 +621,44 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             {/* Modal Scrollable Content Container */}
             <div className="overflow-y-auto p-5 sm:p-7 space-y-4 sm:space-y-5 services-scrollbar">
               
-              {/* Header Lockup: Genuine Transparent ACS Logo, Category Badge, Title */}
-              <div className="text-left sm:text-center pt-1 sm:pt-2">
-                {/* Genuine ACS Logo with Transparent Background - STRICTLY NO BORDER/OUTLINE/BOX/BADGE */}
-                {/* Positioned upper-left on mobile aligned with modal padding, centered on desktop */}
-                <img
-                  src="/acs_logo_transparent.png"
-                  alt="Awasthi Consultancy Services (ACS)"
-                  className="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] object-contain block mr-auto sm:mx-auto mb-2.5 sm:mb-3 select-none aspect-square"
-                  loading="eager"
-                />
+              {/* Header Lockup: Genuine Transparent ACS Logo on upper-left, Category Badge & Heading on the right (mobile) / Centered (desktop) */}
+              <div className="flex flex-col sm:items-center sm:text-center pt-1 sm:pt-2">
+                
+                {/* On mobile: Flex row placing Heading & Badge in the upper area beside the logo. On desktop: Centered column */}
+                <div className="flex sm:flex-col items-start sm:items-center gap-3.5 sm:gap-0 pr-8 sm:pr-0 w-full">
+                  {/* Genuine ACS Logo with Transparent Background - STRICTLY NO BORDER/OUTLINE/BOX/BADGE */}
+                  <img
+                    src="/acs_logo_transparent.png"
+                    alt="Awasthi Consultancy Services (ACS)"
+                    className="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] object-contain shrink-0 select-none aspect-square sm:mb-3"
+                    loading="eager"
+                  />
 
-                {/* Number & Category Badge */}
-                <div className="flex items-center justify-start sm:justify-center gap-2 mb-2">
-                  <span className="font-mono text-xs font-bold text-[#4E6178]">
-                    #{modalService.num}
-                  </span>
-                  {(() => {
-                    const theme = getCategoryTheme(modalService.category);
-                    return (
-                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${theme.pill}`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
-                        <span>{modalService.categoryLabel}</span>
+                  {/* Right side in upper area beside logo on mobile (centered below on desktop): Badge + Heading */}
+                  <div className="flex-1 min-w-0 flex flex-col justify-center">
+                    {/* Number & Category Badge */}
+                    <div className="flex items-center justify-start sm:justify-center gap-2 mb-1.5 sm:mb-2">
+                      <span className="font-mono text-xs font-bold text-[#4E6178]">
+                        #{modalService.num}
                       </span>
-                    );
-                  })()}
+                      {(() => {
+                        const theme = getCategoryTheme(modalService.category);
+                        return (
+                          <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] sm:text-[11px] font-semibold border ${theme.pill}`}>
+                            <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
+                            <span>{modalService.categoryLabel}</span>
+                          </span>
+                        );
+                      })()}
+                    </div>
+
+                    <h3 id="service-modal-title" className="text-lg xs:text-xl sm:text-2xl font-black text-[#293D55] tracking-tight leading-snug text-left sm:text-center">
+                      {modalService.title}
+                    </h3>
+                  </div>
                 </div>
 
-                <h3 id="service-modal-title" className="text-xl sm:text-2xl font-black text-[#293D55] tracking-tight leading-snug text-left sm:text-center">
-                  {modalService.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#4E6178] font-normal mt-1 sm:max-w-lg sm:mx-auto leading-relaxed text-left sm:text-center">
+                <p className="text-xs sm:text-sm text-[#4E6178] font-normal mt-2.5 sm:mt-1 sm:max-w-lg sm:mx-auto leading-relaxed text-left sm:text-center">
                   {modalService.shortDesc}
                 </p>
               </div>
