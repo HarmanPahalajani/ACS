@@ -622,17 +622,18 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
             <div className="overflow-y-auto p-5 sm:p-7 space-y-4 sm:space-y-5 services-scrollbar">
               
               {/* Header Lockup: Genuine Transparent ACS Logo, Category Badge, Title */}
-              <div className="text-center pt-1 sm:pt-2">
+              <div className="text-left sm:text-center pt-1 sm:pt-2">
                 {/* Genuine ACS Logo with Transparent Background - STRICTLY NO BORDER/OUTLINE/BOX/BADGE */}
+                {/* Positioned upper-left on mobile aligned with modal padding, centered on desktop */}
                 <img
                   src="/acs_logo_transparent.png"
                   alt="Awasthi Consultancy Services (ACS)"
-                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain block mx-auto mb-3 select-none aspect-square"
+                  className="w-[68px] h-[68px] sm:w-[72px] sm:h-[72px] object-contain block mr-auto sm:mx-auto mb-2.5 sm:mb-3 select-none aspect-square"
                   loading="eager"
                 />
 
                 {/* Number & Category Badge */}
-                <div className="flex items-center justify-center gap-2 mb-2">
+                <div className="flex items-center justify-start sm:justify-center gap-2 mb-2">
                   <span className="font-mono text-xs font-bold text-[#4E6178]">
                     #{modalService.num}
                   </span>
@@ -647,11 +648,11 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                   })()}
                 </div>
 
-                <h3 id="service-modal-title" className="text-xl sm:text-2xl font-black text-[#293D55] tracking-tight leading-snug">
+                <h3 id="service-modal-title" className="text-xl sm:text-2xl font-black text-[#293D55] tracking-tight leading-snug text-left sm:text-center">
                   {modalService.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#4E6178] font-normal mt-1 max-w-lg mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#4E6178] font-normal mt-1 sm:max-w-lg sm:mx-auto leading-relaxed text-left sm:text-center">
                   {modalService.shortDesc}
                 </p>
               </div>
