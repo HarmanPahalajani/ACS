@@ -27,7 +27,6 @@ import {
   ArrowRight, 
   CheckCircle2, 
   X, 
-  ChevronDown, 
   PhoneCall, 
   HelpCircle,
   FileText,
@@ -35,7 +34,7 @@ import {
   QrCode
 } from 'lucide-react';
 import { SERVICES_CATALOG, SERVICE_CATEGORIES, COMPANY_INFO } from '../data';
-import type { ServiceCategoryKey } from '../types';
+import type { ServiceCategoryKey, ServiceItem } from '../types';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
@@ -58,19 +57,38 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
   const { ref: sectionRef } = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
   const [activeCategory, setActiveCategory] = useState<ServiceCategoryKey | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedServiceId, setExpandedServiceId] = useState<string | null>(null);
+  const [modalService, setModalService] = useState<ServiceItem | null>(null);
   const [isUpiModalOpen, setIsUpiModalOpen] = useState(false);
-  const rowRefs = useRef<Record<string, HTMLElement | null>>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // Prevent background scrolling while any modal is open
   useEffect(() => {
-    if (!isUpiModalOpen) return;
+    if (modalService || isUpiModalOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [modalService, isUpiModalOpen]);
+
+  // Handle Escape key to close modals
+  useEffect(() => {
+    if (!modalService && !isUpiModalOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsUpiModalOpen(false);
+      if (e.key === 'Escape') {
+        if (modalService) {
+          setModalService(null);
+          if (onClearExpandedService) onClearExpandedService();
+        }
+        if (isUpiModalOpen) {
+          setIsUpiModalOpen(false);
+        }
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isUpiModalOpen]);
+  }, [modalService, isUpiModalOpen, onClearExpandedService]);
 
   // Reset scroll container position when category or search changes
   useEffect(() => {
@@ -79,6 +97,7 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
     }
   }, [activeCategory, searchQuery]);
 
+  // Sync external request to expand/view service (from Hero or navigation)
   const [prevSelected, setPrevSelected] = useState(selectedServiceToExpand);
   if (selectedServiceToExpand !== prevSelected) {
     setPrevSelected(selectedServiceToExpand);
@@ -88,23 +107,10 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
       );
       if (match) {
         setActiveCategory(match.category);
-        setExpandedServiceId(match.id);
+        setModalService(match);
       }
     }
   }
-
-  // Scroll to expanded service when requested externally
-  useEffect(() => {
-    if (selectedServiceToExpand && expandedServiceId) {
-      const timer = setTimeout(() => {
-        const el = rowRefs.current[expandedServiceId];
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }, 150);
-      return () => clearTimeout(timer);
-    }
-  }, [selectedServiceToExpand, expandedServiceId]);
 
   const filteredServices = useMemo(() => {
     return SERVICES_CATALOG.filter(item => {
@@ -118,13 +124,6 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
-
-  const toggleService = (id: string) => {
-    setExpandedServiceId(prev => (prev === id ? null : id));
-    if (onClearExpandedService) {
-      onClearExpandedService();
-    }
-  };
 
   const getServiceIcon = (iconName: string, className = "w-4 h-4") => {
     switch (iconName) {
@@ -490,7 +489,6 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
               >
               
               {filteredServices.map((service, index) => {
-                const isExpanded = expandedServiceId === service.id;
                 const theme = getCategoryTheme(service.category);
                 const surfaceBg = index % 3 === 0 
                   ? 'bg-white' 
@@ -501,19 +499,15 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
                 return (
                   <article
                     key={service.id}
-                    ref={el => { rowRefs.current[service.id] = el; }}
                     id={`service-${service.id}`}
-                    className={`transition-colors duration-200 ${
-                      isExpanded ? 'bg-[#DCEBFF]/35' : `${surfaceBg} hover:bg-[#EFF6FF]/70`
-                    }`}
+                    className={`transition-colors duration-200 ${surfaceBg} hover:bg-[#EFF6FF]/70`}
                   >
                     {/* Primary Clickable Editorial Row */}
                     <button
                       type="button"
-                      onClick={() => toggleService(service.id)}
+                      onClick={() => setModalService(service)}
                       className="w-full text-left p-3 sm:p-4 sm:px-5 flex items-start sm:items-center justify-between gap-2.5 sm:gap-4 group cursor-pointer focus:outline-none focus-visible:bg-[#EFF6FF]/70"
-                      aria-expanded={isExpanded}
-                      aria-controls={`service-detail-${service.id}`}
+                      aria-haspopup="dialog"
                     >
                       <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
                         
@@ -548,124 +542,17 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
 
                       </div>
 
-                      {/* Right Indicator / Expand Chevron */}
+                      {/* Right Indicator / Details Button */}
                       <div className="flex items-center gap-2 flex-shrink-0 pt-0.5 sm:pt-0">
                         <span className="hidden sm:inline-block text-xs font-bold text-slate-400 group-hover:text-[#2563EB] transition-colors">
-                          {isExpanded ? 'Hide' : 'Details'}
+                          Details
                         </span>
-                        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
-                          isExpanded 
-                            ? 'bg-[#2563EB] border-[#2563EB] text-white rotate-180 shadow-2xs' 
-                            : 'bg-slate-50 border-slate-200 text-slate-500 group-hover:border-slate-300 group-hover:bg-white group-hover:text-[#16324F]'
-                        }`}>
-                          <ChevronDown className="w-4 h-4 transition-transform duration-200" />
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center border transition-all duration-200 bg-slate-50 border-slate-200 text-slate-500 group-hover:border-[#2563EB]/40 group-hover:bg-[#EFF6FF] group-hover:text-[#2563EB] group-hover:scale-105">
+                          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </div>
                       </div>
 
                     </button>
-
-                    {/* Smooth Inline Expandable Detail Drawer */}
-                    {isExpanded && (
-                      <div 
-                        id={`service-detail-${service.id}`}
-                        className="px-4 sm:px-6 pb-5 sm:pb-6 pt-1 border-t border-slate-100 bg-white space-y-4 animate-in fade-in slide-in-from-top-1 duration-200"
-                      >
-                        {/* Full Overview Description */}
-                        <div className="pt-2">
-                          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                            Overview
-                          </div>
-                          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            {service.description}
-                          </p>
-                        </div>
-
-                        {/* Two Columns: Scope of Assistance & Required Documents */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-                          
-                          {/* Scope of Assistance */}
-                          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-                            <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                              <span>Scope of Assistance</span>
-                            </div>
-                            <ul className="space-y-1.5 text-xs text-slate-600">
-                              {service.keyPoints.map((point, idx) => (
-                                <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                                  <span className="text-emerald-600 font-bold">•</span>
-                                  <span>{point}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Documents Commonly Required */}
-                          <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-                            <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                              <FileText className="w-3.5 h-3.5 text-[#2563EB]" />
-                              <span>Commonly Required Documents</span>
-                            </div>
-                            {service.documentsRequired && service.documentsRequired.length > 0 ? (
-                              <div className="flex flex-wrap gap-1.5 pt-0.5">
-                                {service.documentsRequired.map((doc, idx) => (
-                                  <span 
-                                    key={idx} 
-                                    className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] font-medium shadow-2xs"
-                                  >
-                                    {doc}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : (
-                              <p className="text-xs text-slate-500">
-                                Contact our desk for the precise document checklist based on your entity constitution.
-                              </p>
-                            )}
-                          </div>
-
-                        </div>
-
-                        {/* Who Needs This Guidance Banner */}
-                        {service.whoNeedsThis && (
-                          <div className="text-xs text-slate-600 bg-amber-50/70 border border-amber-200/80 rounded-xl p-3 flex items-start gap-2">
-                            <strong className="text-amber-900 font-semibold flex-shrink-0">Who needs this:</strong>
-                            <span>{service.whoNeedsThis}</span>
-                          </div>
-                        )}
-
-                        {/* Action Row: Direct Inquire & Phone Call */}
-                        <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100">
-                          <p className="text-[11px] text-slate-400 italic">
-                            * Final statutory grant/approval subject to competent government authority review.
-                          </p>
-
-                          <div className="flex items-center gap-2.5 w-full sm:w-auto">
-                            <a
-                              href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-                              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors cursor-pointer"
-                            >
-                              <PhoneCall className="w-3.5 h-3.5 text-[#2563EB]" />
-                              <span>Call Desk</span>
-                            </a>
-
-                            <button
-                              type="button"
-                              onClick={() => {
-                                if (onRequestConsultation) {
-                                  onRequestConsultation(service.title);
-                                }
-                              }}
-                              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold shadow-xs hover:shadow transition-all cursor-pointer"
-                            >
-                              <span>Inquire for {service.title}</span>
-                              <ArrowRight className="w-3.5 h-3.5" />
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-                    )}
-
                   </article>
                 );
               })}
@@ -701,6 +588,173 @@ export const OurServicesSection: React.FC<OurServicesSectionProps> = ({
         </div>
 
       </div>
+
+      {/* Service Description Pop-up Modal */}
+      {modalService && (
+        <div 
+          className="fixed inset-0 z-50 bg-[#16324F]/65 backdrop-blur-xs flex items-center justify-center p-3.5 sm:p-6 overflow-y-auto animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="service-modal-title"
+          onClick={() => {
+            setModalService(null);
+            if (onClearExpandedService) onClearExpandedService();
+          }}
+        >
+          <div 
+            className="relative bg-white rounded-2xl sm:rounded-3xl border border-[#E7E5E0] shadow-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden animate-scaleUp my-auto text-left"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => {
+                setModalService(null);
+                if (onClearExpandedService) onClearExpandedService();
+              }}
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-[#16324F] flex items-center justify-center transition-colors cursor-pointer z-20"
+              aria-label="Close service details modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Modal Scrollable Content Container */}
+            <div className="overflow-y-auto p-5 sm:p-7 space-y-4 sm:space-y-5 services-scrollbar">
+              
+              {/* Header Lockup: Genuine Transparent ACS Logo, Category Badge, Title */}
+              <div className="text-center pt-1 sm:pt-2">
+                {/* Genuine ACS Logo with Transparent Background - STRICTLY NO BORDER/OUTLINE/BOX/BADGE */}
+                <img
+                  src="/acs_logo_transparent.png"
+                  alt="Awasthi Consultancy Services (ACS)"
+                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain block mx-auto mb-3 select-none aspect-square"
+                  loading="eager"
+                />
+
+                {/* Number & Category Badge */}
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="font-mono text-xs font-bold text-slate-400">
+                    #{modalService.num}
+                  </span>
+                  {(() => {
+                    const theme = getCategoryTheme(modalService.category);
+                    return (
+                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${theme.pill}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${theme.dot}`} />
+                        <span>{modalService.categoryLabel}</span>
+                      </span>
+                    );
+                  })()}
+                </div>
+
+                <h3 id="service-modal-title" className="text-xl sm:text-2xl font-black text-[#16324F] tracking-tight leading-snug">
+                  {modalService.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#29332F]/75 font-normal mt-1 max-w-lg mx-auto leading-relaxed">
+                  {modalService.shortDesc}
+                </p>
+              </div>
+
+              {/* Full Overview Description */}
+              <div className="pt-2 border-t border-slate-100">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                  Overview
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  {modalService.description}
+                </p>
+              </div>
+
+              {/* Two Columns: Scope of Assistance & Required Documents */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 pt-1">
+                
+                {/* Scope of Assistance */}
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Scope of Assistance</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-slate-600">
+                    {modalService.keyPoints.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                        <span className="text-emerald-600 font-bold">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Documents Commonly Required */}
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                    <FileText className="w-3.5 h-3.5 text-[#2563EB]" />
+                    <span>Commonly Required Documents</span>
+                  </div>
+                  {modalService.documentsRequired && modalService.documentsRequired.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5 pt-0.5">
+                      {modalService.documentsRequired.map((doc, idx) => (
+                        <span 
+                          key={idx} 
+                          className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 text-[11px] font-medium shadow-2xs"
+                        >
+                          {doc}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-slate-500">
+                      Contact our desk for the precise document checklist based on your entity constitution.
+                    </p>
+                  )}
+                </div>
+
+              </div>
+
+              {/* Who Needs This Guidance Banner */}
+              {modalService.whoNeedsThis && (
+                <div className="text-xs text-slate-600 bg-amber-50/70 border border-[#D6B36A]/40 rounded-xl p-3 flex items-start gap-2">
+                  <strong className="text-amber-900 font-semibold flex-shrink-0">Who needs this:</strong>
+                  <span>{modalService.whoNeedsThis}</span>
+                </div>
+              )}
+
+              {/* Action Row: Direct Inquire & Phone Call */}
+              <div className="pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100">
+                <p className="text-[11px] text-slate-400 italic">
+                  * Final statutory grant/approval subject to competent government authority review.
+                </p>
+
+                <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                  <a
+                    href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors cursor-pointer"
+                  >
+                    <PhoneCall className="w-3.5 h-3.5 text-[#2563EB]" />
+                    <span>Call Desk</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onRequestConsultation) {
+                        onRequestConsultation(modalService.title);
+                      }
+                      setModalService(null);
+                      if (onClearExpandedService) onClearExpandedService();
+                    }}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold shadow-xs hover:shadow transition-all cursor-pointer"
+                  >
+                    <span>Inquire for {modalService.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Pay via UPI (Paytm & PhonePe) Modal Popup */}
       {isUpiModalOpen && (
