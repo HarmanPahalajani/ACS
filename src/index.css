@@ -3,33 +3,33 @@
 @layer base {
   :root {
     /* Coordinated Multicoloured Brand Palette Tokens */
-    --color-canvas: #FAF9F4;        /* Warm Ivory Base Canvas */
+    --color-canvas: #FFFCF5;        /* Warm Ivory Base Canvas */
     --color-surface-white: #FFFFFF; /* Crisp White Content Surface */
-    --color-text-main: #29332F;     /* Charcoal Primary Body Text */
-    --color-text-navy: #16324F;     /* Deep Navy Blue Headings */
-    --color-text-muted: #667085;    /* Muted Slate Secondary Text */
-    --color-border-subtle: #E7E5E0; /* Warm Light Grey Dividers & Borders */
+    --color-text-main: #293D55;     /* Deep Blue-Grey Body Text */
+    --color-text-navy: #293D55;     /* Deep Blue-Grey Headings */
+    --color-text-muted: #4E6178;    /* Muted Slate Secondary Text */
+    --color-border-subtle: #DCE6F2; /* Soft Border */
     
     /* Primary & Coordinated Palette Tokens */
-    --color-primary-blue: #2563EB;  /* Primary Blue (Dominant Accent) */
-    --color-deep-navy: #16324F;     /* Deep Navy Blue */
-    --color-sky-blue: #DCEBFF;      /* Sky Blue */
-    --color-pale-blue: #EFF6FF;     /* Pale Blue */
-    --color-sage-green: #A8C3A0;    /* Sage Green */
-    --color-soft-mint: #E6F1E6;     /* Soft Mint */
-    --color-teal: #399A9A;          /* Teal Interactive Accent */
-    --color-warm-gold: #D6B36A;     /* Warm Gold Premium Accent */
-    --color-soft-lavender: #F0EDFF; /* Soft Lavender Accent */
+    --color-primary-blue: #3478F6;  /* Vibrant Royal Blue (Primary Brand) */
+    --color-rich-blue: #2457C5;     /* Rich Blue (Hover & Contrast) */
+    --color-sky-blue: #B9DEFF;      /* Bright Sky Blue */
+    --color-pale-blue: #EAF4FF;     /* Pale Blue */
+    --color-sage-green: #A9D6B0;    /* Fresh Sage Green */
+    --color-soft-mint: #E4F5E8;     /* Fresh Mint */
+    --color-teal: #43B7B0;          /* Elegant Teal */
+    --color-warm-gold: #E5BC64;     /* Warm Golden Yellow */
+    --color-soft-lavender: #EFEAFF; /* Soft Lavender Accent */
     
     /* Supplementary Accents */
-    --color-emerald-green: #059669; /* Emerald for verified status */
-    --color-amber-gold: #D6B36A;    /* Warm Gold for ratings & premium details */
+    --color-emerald-green: #10B981; /* Fresh Emerald */
+    --color-amber-gold: #E5BC64;    /* Warm Golden Yellow */
   }
 
   body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #FAF9F4;
-    color: #29332F;
+    background-color: #FFFCF5;
+    color: #293D55;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -40,7 +40,7 @@
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #16324F;
+    color: #293D55;
   }
 
   /* Custom refined scrollbar */
@@ -49,14 +49,14 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #FAF9F4;
+    background: #FFFCF5;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D8D5CD;
+    background: #B9DEFF;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2563EB;
+    background: #3478F6;
   }
 }
 
@@ -71,8 +71,8 @@
 /* Continuous Architectural Fine-Line Grid Canvas (Layer 2) */
 .site-canvas-grid {
   background-image: 
-    linear-gradient(to right, rgba(231, 229, 224, 0.55) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(231, 229, 224, 0.55) 1px, transparent 1px);
+    linear-gradient(to right, rgba(185, 222, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 222, 255, 0.35) 1px, transparent 1px);
   background-size: 64px 64px;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -81,16 +81,16 @@
 /* Subtle Document Ledger Horizontal Rule */
 .ledger-rule {
   height: 1px;
-  background-image: linear-gradient(to right, transparent, rgba(231, 229, 224, 0.9) 10%, rgba(231, 229, 224, 0.9) 90%, transparent);
+  background-image: linear-gradient(to right, transparent, rgba(185, 222, 255, 0.9) 10%, rgba(185, 222, 255, 0.9) 90%, transparent);
 }
 
-/* Soft Ambient Radial Variation (Layer 3) with Sky Blue, Soft Mint, and Warm Gold */
+/* Soft Ambient Radial Variation (Layer 3) with Bright Sky Blue, Fresh Mint, and Warm Gold */
 .site-ambient-lighting {
   background:
-    radial-gradient(ellipse 900px 600px at 15% 10%, rgba(220, 235, 255, 0.5) 0%, transparent 70%),
-    radial-gradient(ellipse 800px 500px at 85% 25%, rgba(230, 241, 230, 0.45) 0%, transparent 65%),
-    radial-gradient(ellipse 1000px 700px at 50% 55%, rgba(214, 179, 106, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 900px 600px at 85% 85%, rgba(220, 235, 255, 0.4) 0%, transparent 70%);
+    radial-gradient(ellipse 950px 650px at 15% 8%, rgba(185, 222, 255, 0.65) 0%, transparent 70%),
+    radial-gradient(ellipse 850px 550px at 88% 22%, rgba(228, 245, 232, 0.60) 0%, transparent 68%),
+    radial-gradient(ellipse 1000px 700px at 45% 52%, rgba(229, 188, 100, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 950px 650px at 85% 85%, rgba(185, 222, 255, 0.55) 0%, transparent 70%);
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -194,7 +194,7 @@
 /* Modal Inner Slim Scrollbar */
 .modal-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #2563EB transparent;
+  scrollbar-color: #3478F6 transparent;
 }
 .modal-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -204,11 +204,11 @@
   margin: 6px 0;
 }
 .modal-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #3B82F6;
+  background-color: #3478F6;
   border-radius: 9999px;
 }
 .modal-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #2563EB;
+  background-color: #2457C5;
 }
 
 /* Card Hover Lift & Glow */
@@ -220,7 +220,7 @@
 @media (hover: hover) and (pointer: fine) {
   .card-hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 16px 32px -8px rgba(52, 120, 246, 0.12), 0 4px 12px -2px rgba(41, 61, 85, 0.06);
   }
 }
 
@@ -289,7 +289,7 @@
 /* Refined Services Directory Scrollbar */
 .services-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #D8D5CD transparent;
+  scrollbar-color: #B9DEFF transparent;
 }
 .services-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -298,11 +298,11 @@
   background: transparent;
 }
 .services-scrollbar::-webkit-scrollbar-thumb {
-  background: #D8D5CD;
+  background: #B9DEFF;
   border-radius: 9999px;
 }
 .services-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #2563EB;
+  background: #3478F6;
 }
 
 /* Reduced motion accessibility */

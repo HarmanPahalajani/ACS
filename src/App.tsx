@@ -77,7 +77,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F4] text-[#29332F] selection:bg-[#2563EB] selection:text-white font-sans flex flex-col overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#FFFCF5] text-[#293D55] selection:bg-[#3478F6] selection:text-white font-sans flex flex-col overflow-x-hidden relative">
       {/* Continuous 3-Layer Architectural Background System */}
       <SiteBackground />
 

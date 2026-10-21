@@ -11,6 +11,7 @@ interface StatItem {
   icon: React.ComponentType<{ className?: string }>;
   cardBg: string;
   iconBg: string;
+  numColor: string;
 }
 
 const STATS_DATA: StatItem[] = [
@@ -21,8 +22,9 @@ const STATS_DATA: StatItem[] = [
     label: 'Reviews',
     subtitle: `${COMPANY_INFO.rating} ★ Rating`,
     icon: Star,
-    cardBg: 'bg-[#EFF6FF] border-[#DCEBFF] hover:border-[#2563EB]/40',
-    iconBg: 'bg-amber-50/90 border-[#D6B36A]/50 text-[#D6B36A]'
+    cardBg: 'bg-[#EAF4FF] border-2 border-[#B9DEFF] hover:border-[#3478F6]/50 shadow-2xs hover:shadow-xs',
+    iconBg: 'bg-white border border-[#E5BC64]/60 text-[#E5BC64]',
+    numColor: 'text-[#3478F6]'
   },
   {
     id: 'services',
@@ -31,8 +33,9 @@ const STATS_DATA: StatItem[] = [
     label: 'Practice Services',
     subtitle: 'GST, ITR, Loans',
     icon: FileCheck2,
-    cardBg: 'bg-[#E6F1E6]/75 border-[#A8C3A0]/60 hover:border-[#399A9A]/60',
-    iconBg: 'bg-white/80 border-[#A8C3A0]/80 text-[#399A9A]'
+    cardBg: 'bg-[#E4F5E8] border-2 border-[#A9D6B0]/80 hover:border-[#43B7B0] shadow-2xs hover:shadow-xs',
+    iconBg: 'bg-white border border-[#A9D6B0] text-[#43B7B0]',
+    numColor: 'text-[#43B7B0]'
   },
   {
     id: 'filings',
@@ -41,8 +44,9 @@ const STATS_DATA: StatItem[] = [
     label: 'ITR Filings',
     subtitle: 'Successful Cases',
     icon: TrendingUp,
-    cardBg: 'bg-[#DCEBFF]/45 border-[#2563EB]/25 hover:border-[#2563EB]/50',
-    iconBg: 'bg-white border-[#2563EB]/40 text-[#2563EB]'
+    cardBg: 'bg-gradient-to-br from-[#EAF4FF] to-[#B9DEFF]/50 border-2 border-[#3478F6]/30 hover:border-[#3478F6] shadow-2xs hover:shadow-xs',
+    iconBg: 'bg-white border border-[#3478F6]/40 text-[#3478F6]',
+    numColor: 'text-[#3478F6]'
   },
   {
     id: 'experience',
@@ -51,8 +55,9 @@ const STATS_DATA: StatItem[] = [
     label: 'Years in Practice',
     subtitle: 'Tax & Compliance',
     icon: Clock,
-    cardBg: 'bg-[#FAF9F4] border-[#D6B36A]/45 hover:border-[#D6B36A]',
-    iconBg: 'bg-amber-50/90 border-[#D6B36A]/50 text-[#D6B36A]'
+    cardBg: 'bg-[#FFFCF5] border-2 border-[#E5BC64]/70 hover:border-[#E5BC64] shadow-2xs hover:shadow-xs',
+    iconBg: 'bg-amber-50 border border-[#E5BC64] text-[#E5BC64]',
+    numColor: 'text-[#293D55]'
   }
 ];
 
@@ -141,7 +146,7 @@ export const RollingStatistics: React.FC = () => {
           return (
             <div
               key={stat.id}
-              className={`${stat.cardBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 border shadow-2xs hover:shadow-xs transition-all select-none group flex items-center gap-2.5 sm:gap-3.5`}
+              className={`${stat.cardBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 border transition-all select-none group flex items-center gap-2.5 sm:gap-3.5`}
             >
               {/* Left Side: Icon */}
               <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl ${stat.iconBg} border flex items-center justify-center shrink-0 shadow-2xs`}>
@@ -150,18 +155,18 @@ export const RollingStatistics: React.FC = () => {
 
               {/* Right Side: Heading, Count, and Subtitle */}
               <div className="min-w-0 flex-1">
-                <div className="text-[20px] sm:text-2xl lg:text-[26px] font-extrabold text-[#2563EB] tracking-tight leading-none flex items-baseline tabular-nums">
+                <div className={`text-[20px] sm:text-2xl lg:text-[26px] font-extrabold ${stat.numColor} tracking-tight leading-none flex items-baseline tabular-nums`}>
                   <span ref={(el) => { countRefs.current[idx] = el; }}>
                     0
                   </span>
                   <span>{stat.suffix}</span>
                 </div>
                 
-                <div className="text-xs sm:text-[13px] font-bold text-[#16324F] leading-tight truncate mt-1">
+                <div className="text-xs sm:text-[13px] font-bold text-[#293D55] leading-tight truncate mt-1">
                   {stat.label}
                 </div>
 
-                <div className="text-[10px] sm:text-[11.5px] text-[#64748B] font-medium leading-tight truncate mt-0.5">
+                <div className="text-[10px] sm:text-[11.5px] text-[#4E6178] font-medium leading-tight truncate mt-0.5">
                   {stat.subtitle}
                 </div>
               </div>

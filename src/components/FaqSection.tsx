@@ -23,16 +23,16 @@ export const FaqSection: React.FC = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
           }`}
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#EFF6FF] text-[#2563EB] text-[11px] sm:text-xs font-bold uppercase tracking-wider border border-[#2563EB]/25">
-            <HelpCircle className="w-3.5 h-3.5 text-[#2563EB]" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#EAF4FF] text-[#3478F6] text-[11px] sm:text-xs font-bold uppercase tracking-wider border border-[#3478F6]/30">
+            <HelpCircle className="w-3.5 h-3.5 text-[#3478F6]" />
             <span>Clear Answers</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#16324F] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#293D55] tracking-tight">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-[#29332F]/70 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#4E6178] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             Common questions regarding GST registration, ITR filing deadlines, Gumasta license in Bhopal, and loan CMA reports.
           </p>
         </div>
@@ -49,8 +49,8 @@ export const FaqSection: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className={`bg-white rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-200 border ${
-                  isOpen ? 'border-[#2563EB]/40 bg-white shadow-xs' : 'border-[#E7E5E0] hover:border-slate-300 shadow-2xs'
+                className={`bg-white rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-200 border-2 ${
+                  isOpen ? 'border-[#3478F6]/50 bg-[#EAF4FF]/25 shadow-xs' : 'border-[#DCE6F2] hover:border-[#B9DEFF] shadow-2xs'
                 }`}
               >
                 <button
@@ -58,16 +58,16 @@ export const FaqSection: React.FC = () => {
                   id={`faq-btn-${idx}`}
                   aria-controls={`faq-panel-${idx}`}
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-3 sm:p-4 px-3.5 sm:px-5 text-left flex justify-between items-center gap-3 sm:gap-4 hover:bg-[#FAF9F4]/60 transition-colors cursor-pointer"
+                  className="w-full p-3 sm:p-4 px-3.5 sm:px-5 text-left flex justify-between items-center gap-3 sm:gap-4 hover:bg-[#EAF4FF]/40 transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span className={`text-[13px] sm:text-base font-extrabold pr-2 leading-snug transition-colors ${
-                    isOpen ? 'text-[#2563EB]' : 'text-[#16324F]'
+                    isOpen ? 'text-[#3478F6]' : 'text-[#293D55]'
                   }`}>
                     {faq.question}
                   </span>
                   <div className={`p-1 rounded-full transition-transform duration-300 flex-shrink-0 ${
-                    isOpen ? 'rotate-180 bg-[#EFF6FF] text-[#2563EB]' : 'bg-slate-100 text-slate-500'
+                    isOpen ? 'rotate-180 bg-[#EAF4FF] text-[#3478F6]' : 'bg-slate-100 text-[#4E6178]'
                   }`}>
                     <ChevronDown className="w-3.5 h-3.5" />
                   </div>
@@ -78,7 +78,7 @@ export const FaqSection: React.FC = () => {
                     id={`faq-panel-${idx}`}
                     role="region"
                     aria-labelledby={`faq-btn-${idx}`}
-                    className="px-3.5 pb-3 sm:px-5 sm:pb-4.5 text-[#29332F]/80 text-xs sm:text-sm leading-relaxed border-t border-[#E7E5E0]/70 pt-2.5 animate-fadeIn"
+                    className="px-3.5 pb-3 sm:px-5 sm:pb-4.5 text-[#4E6178] text-xs sm:text-sm leading-relaxed border-t border-[#B9DEFF]/60 pt-2.5 animate-fadeIn"
                   >
                     <p>{faq.answer}</p>
                   </div>
@@ -89,16 +89,16 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Still have a question? Call desk prompt */}
-        <div className="mt-5 sm:mt-7 p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl bg-white border border-[#E7E5E0] shadow-2xs text-center flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+        <div className="mt-5 sm:mt-7 p-3.5 sm:p-4.5 rounded-xl sm:rounded-2xl bg-white border-2 border-[#B9DEFF]/70 shadow-2xs text-center flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <div className="text-left">
-            <h4 className="text-xs sm:text-sm font-bold text-[#16324F]">Have a specific or unusual question?</h4>
-            <p className="text-xs text-[#29332F]/70 mt-0.5">Mr. Pankaj Awasthi and our team are happy to answer your questions.</p>
+            <h4 className="text-xs sm:text-sm font-bold text-[#293D55]">Have a specific or unusual question?</h4>
+            <p className="text-xs text-[#4E6178] mt-0.5">Mr. Pankaj Awasthi and our team are happy to answer your questions.</p>
           </div>
           <a
             href={`tel:${COMPANY_INFO.phones[0].replace(/\s+/g, '')}`}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#16324F] hover:bg-[#2563EB] text-white text-xs font-bold transition-all shadow-xs flex-shrink-0"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#3478F6] hover:bg-[#2457C5] text-white text-xs font-bold transition-all shadow-xs flex-shrink-0"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-[#EFF6FF]" />
+            <PhoneCall className="w-3.5 h-3.5 text-white" />
             <span>Call: {COMPANY_INFO.phones[0]}</span>
           </a>
         </div>
